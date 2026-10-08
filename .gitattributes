@@ -1,0 +1,14 @@
+# Normalizează capetele de linie (echipa lucrează pe Windows și macOS)
+* text=auto eol=lf
+
+# Fișiere binare
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
