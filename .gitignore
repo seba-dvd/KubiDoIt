@@ -1,0 +1,49 @@
+# Dependențe
+node_modules/
+
+# Build și rezultate generate
+dist/
+web-build/
+coverage/
+*.tsbuildinfo
+
+# Variabile de mediu: fiecare membru își face propriile fișiere din .env.example
+.env
+.env.*
+!.env.example
+
+# Expo / React Native
+.expo/
+expo-env.d.ts
+.metro-health-check*
+mobile/android/
+mobile/ios/
+.kotlin/
+*.apk
+*.aab
+*.ipa
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
+
+# Vercel
+.vercel/
+
+# Loguri
+*.log
+npm-debug.log*
+
+# Sistem de operare și editoare
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

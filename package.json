@@ -1,0 +1,37 @@
+{
+  "name": "kubidoit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KubiDoIt – aplicație web și mobilă de tip listă de activități (React, React Native, Supabase)",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "web",
+    "mobile"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev:web": "npm run dev -w @kubidoit/web",
+    "dev:mobile": "npm run start -w @kubidoit/mobile",
+    "build:web": "npm run build -w @kubidoit/web",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.4"
+  }
+}
