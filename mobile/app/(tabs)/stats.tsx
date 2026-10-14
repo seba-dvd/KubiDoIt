@@ -23,7 +23,7 @@ export default function StatsScreen() {
         {STATUS_ORDER.map((status) => (
           <Card
             key={status}
-            mode="outlined"
+            mode="contained"
             style={[styles.stat, { borderTopColor: STATUS_COLORS[status] }]}
           >
             <Card.Content>

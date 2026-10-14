@@ -12,7 +12,7 @@ export function TaskCard({ task, status }: { task: Task; status: TaskStatus }) {
   const isClosed = status === 'completed' || status === 'canceled';
 
   return (
-    <Card mode="outlined" style={[styles.card, { borderLeftColor: STATUS_COLORS[status] }]}>
+    <Card mode="contained" style={[styles.card, { borderLeftColor: STATUS_COLORS[status] }]}>
       <Card.Content style={styles.content}>
         <View style={styles.header}>
           <Text
