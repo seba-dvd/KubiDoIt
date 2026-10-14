@@ -24,6 +24,7 @@ export function TaskForm() {
     }
     addTask(result.value);
     setTitle('');
+    setDue(toDateTimeLocalValue(tomorrowAtNoon()));
     setErrors({});
   }
 
