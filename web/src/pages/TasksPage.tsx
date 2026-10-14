@@ -1,19 +1,32 @@
-import { STATUS_ORDER } from '@kubidoit/shared';
+import { computeStatus, countByStatus, sortTasksForDisplay } from '@kubidoit/shared';
+import { useState } from 'react';
 
-import { StatusBadge } from '../components/StatusBadge';
+import { StatusFilter, type StatusFilterValue } from '../components/StatusFilter';
+import { TaskForm } from '../components/TaskForm';
+import { TaskList } from '../components/TaskList';
+import { useNow } from '../hooks/useNow';
+import { useTasks } from '../state/tasks-context';
 
 export function TasksPage() {
+  const { tasks } = useTasks();
+  const now = useNow();
+  const [filter, setFilter] = useState<StatusFilterValue>('all');
+
+  const visible = sortTasksForDisplay(tasks, now).filter(
+    (task) => filter === 'all' || computeStatus(task, now) === filter,
+  );
+
   return (
     <section className="page stack">
       <h1>Activități</h1>
-      <p className="muted">Aici vor apărea activitățile, cu cele 4 statusuri:</p>
-      <ul className="legend" aria-label="Statusuri">
-        {STATUS_ORDER.map((status) => (
-          <li key={status}>
-            <StatusBadge status={status} />
-          </li>
-        ))}
-      </ul>
+      <TaskForm />
+      <StatusFilter
+        value={filter}
+        onChange={setFilter}
+        counts={countByStatus(tasks, now)}
+        total={tasks.length}
+      />
+      <TaskList tasks={visible} now={now} />
     </section>
   );
 }
