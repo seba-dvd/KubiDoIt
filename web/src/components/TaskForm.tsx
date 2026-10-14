@@ -1,7 +1,12 @@
-import { TITLE_MAX_LENGTH, validateNewTask, type NewTaskErrors } from '@kubidoit/shared';
+import {
+  TITLE_MAX_LENGTH,
+  toDateTimeLocalValue,
+  tomorrowAtNoon,
+  validateNewTask,
+  type NewTaskErrors,
+} from '@kubidoit/shared';
 import { useState, type FormEvent } from 'react';
 
-import { toDateTimeLocalValue, tomorrowAtNoon } from '../lib/datetime-local';
 import { useTasks } from '../state/tasks-context';
 
 export function TaskForm() {
