@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) with page/screen shells; the R1–R3 MVP on local mock data is built on `feature/mvp-r1-r3`. Supabase auth/sync and R4–R8 are not wired yet. The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
+KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) and the R1–R3 MVP runs on both apps on local mock data (demo mode). Supabase auth/sync and R4–R8 are not wired yet. `main` is protected: changes land through PRs with 1 approval and a green `verify` CI check. The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
 
 ### Version pins (keep them in sync)
 
