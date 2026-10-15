@@ -55,4 +55,5 @@ Node **22.12+** is required (24 LTS recommended).
 - Never commit directly to `main`. Branches: `feature/<slug>`, `fix/<slug>`, `chore/<slug>`, `docs/<slug>`.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:` …). Commit subjects in English following the Conventional Commits examples in the README.
 - Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. PRs need at least one teammate review.
+- **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).
 - Team ownership (useful when deciding who/what a change touches): web → Mituleci Tudor, mobile → Kubanda Andrei, Supabase/backend/security → Pilat David, PM/docs/testing → Nicolescu Andreas.
