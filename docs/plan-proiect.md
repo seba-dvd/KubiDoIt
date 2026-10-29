@@ -1,8 +1,20 @@
 # Planul proiectului și împărțirea sarcinilor
 
-Documentul împarte toate sarcinile din [README](../README.md) și din [Project Charter](project-charter/Schita_ProjectCharter.md) pe milestone-uri și pe membri. Fiecare rând devine un card în Trello. Andreas (PM) creează cardurile și ține documentul la zi.
+Documentul împarte toate sarcinile din [README](../README.md) și din [Project Charter](project-charter/Schita_ProjectCharter.md) pe milestone-uri și pe membri. Fiecare rând este un [issue pe GitHub](https://github.com/seba-dvd/KubiDoIt/issues), cu responsabil și termen, și un card în Trello. Andreas (PM) ține documentul la zi.
 
-> **Termene:** coloana „Termen” din tabelul milestone-urilor rămâne _de stabilit_ până la confirmarea calendarului. Ordinea sarcinilor și dependențele de mai jos nu depind de date.
+Ghidul fiecărui membru, cu ordinea sarcinilor și link-urile spre issue-uri, e în [docs/echipa/](echipa/README.md).
+
+## Calendar
+
+Termenele vin din charter (ședințele cursului) și sunt [milestone-uri pe GitHub](https://github.com/seba-dvd/KubiDoIt/milestones). Charter-ul cere întâi aplicația web, apoi pe cea mobilă, așa că sarcinile mobile din M2–M4 au termen după L2.
+
+| Termen     | Ședința | Ce se predă / se verifică                                                    | Sarcini                                                           |
+| ---------- | ------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 22.10.2026 | 2       | **L1**: planificare și specificații                                          | M1.3–M1.10                                                        |
+| 05.11.2026 | 3       | punct de control: aplicația web cu R1–R3 și autentificare                    | M2.1, M2.2, M2.4–M2.6, M3.1–M3.3                                  |
+| 19.11.2026 | 4       | **L2**: aplicația web cu R1–R7, publicată pe Vercel, + documentație          | M3.7, M3.8, M4.1, M4.2, M4.4, M4.6, M6.1, M6.4 (ghid web, README) |
+| 03.12.2026 | 5       | punct de control: aplicația mobilă cu R1–R5, pe același backend              | M2.3, M3.4–M3.6, M3.9, M3.10                                      |
+| 17.12.2026 | 6       | **L3**: aplicația mobilă completă + documentație; testare finală, prezentare | M4.3, M4.5, M4.7, M5.1–M5.5 (opțional), M6.2–M6.6                 |
 
 ## Echipa
 
@@ -15,14 +27,14 @@ Documentul împarte toate sarcinile din [README](../README.md) și din [Project 
 
 ## Milestone-uri
 
-| Milestone | Conținut                                               | Cerințe | Termen        |
-| --------- | ------------------------------------------------------ | ------- | ------------- |
-| M1        | Setup și specificații de proiectare (livrabilul L1)    | –       | _de stabilit_ |
-| M2        | MVP: adăugare / ștergere activități + cele 4 statusuri | R1–R3   | _de stabilit_ |
-| M3        | Autentificare, sincronizare, categorii                 | R4, R5  | _de stabilit_ |
-| M4        | Remindere și statistici de eficiență                   | R6, R7  | _de stabilit_ |
-| M5        | Activități de grup (opțional)                          | R8      | _de stabilit_ |
-| M6        | Testare finală, publicare, documentație completă       | toate   | _de stabilit_ |
+| Milestone | Conținut                                               | Cerințe | Termen                            |
+| --------- | ------------------------------------------------------ | ------- | --------------------------------- |
+| M1        | Setup și specificații de proiectare (livrabilul L1)    | –       | 22.10.2026                        |
+| M2        | MVP: adăugare / ștergere activități + cele 4 statusuri | R1–R3   | web 05.11, mobil 03.12.2026       |
+| M3        | Autentificare, sincronizare, categorii                 | R4, R5  | web 05.11–19.11, mobil 03.12.2026 |
+| M4        | Remindere și statistici de eficiență                   | R6, R7  | web 19.11, mobil 17.12.2026       |
+| M5        | Activități de grup (opțional)                          | R8      | 17.12.2026                        |
+| M6        | Testare finală, publicare, documentație completă       | toate   | web 19.11, final 17.12.2026       |
 
 Livrabilele din charter: **L1** = M1, **L2** = aplicația web (M2–M4 pe web, publicată pe Vercel), **L3** = aplicația mobilă (M2–M4 pe mobil, APK).
 
@@ -112,7 +124,9 @@ Andreas decide împreună cu echipa dacă R8 intră în scope, în funcție de t
 - **David (backend):** M1.1, M1.2, M1.3, M1.4, M2.1, M2.4, M2.5, M3.1, M3.6, M3.7, M4.6, M5.1, M5.2, M6.5 – plus ajutor la M6.1.
 - **Toți:** M1.9 și revizuirea PR-urilor colegilor.
 
-Dacă se păstrează organizarea din charter (întâi web, apoi mobil), sarcinile mobile M3.4, M3.5, M3.9 și M4.3 se mută după livrarea aplicației web, iar Andrei lucrează între timp la `shared/` (M4.1) și ajută la web.
+Se păstrează organizarea din charter (întâi web, apoi mobil): sarcinile mobile M2.3, M3.4, M3.5, M3.9 și M4.3 vin după livrarea aplicației web (vezi [Calendar](#calendar)), iar Andrei lucrează între timp la `shared/` (M4.1) și ajută la web.
+
+Ghidul fiecăruia, cu sarcinile în ordine și link-urile spre issue-uri: [Andreas](echipa/andreas.md), [Tudor](echipa/tudor.md), [Andrei](echipa/andrei.md), [David](echipa/david.md).
 
 ## Definition of Done (pentru orice sarcină)
 
