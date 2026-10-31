@@ -52,7 +52,8 @@ Node **22.12+** is required (24 LTS recommended).
 
 ## Workflow conventions
 
-- Never commit directly to `main`. Branches: `feature/<slug>`, `fix/<slug>`, `chore/<slug>`, `docs/<slug>`.
+- Never commit directly to `main`. Each member has a personal branch created from their GitHub issue (`docs/andreas-pm`, `feature/tudor-web`, `feature/andrei-mobile`, `feature/david-backend`): one PR per task from it with `Closes #<issue>`, and the branch is kept after merge. Larger work may use a separate `feature/<slug>`, `fix/<slug>`, `chore/<slug>` or `docs/<slug>` branch.
+- Every plan task is a GitHub issue, grouped into milestones by the charter dates (Ședința 2–6: 22.10, 05.11, 19.11, 03.12, 17.12.2026). Per-member guides live in `docs/echipa/`.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:` …). Commit subjects in English following the Conventional Commits examples in the README.
 - Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. PRs need at least one teammate review.
 - **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).

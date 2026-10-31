@@ -131,7 +131,7 @@ Fișierele `.env` nu se urcă pe GitHub: sunt în `.gitignore`. Fiecare membru a
 
 ## Flux de lucru Git
 
-1. Nu se lucrează direct pe `main`. Pentru fiecare sarcină se creează o ramură din `main`: `feature/<descriere>`, `fix/<descriere>`, `chore/<descriere>` sau `docs/<descriere>`.
+1. Nu se lucrează direct pe `main`. Fiecare membru are o ramură proprie, creată din issue-ul lui pe GitHub: `docs/andreas-pm`, `feature/tudor-web`, `feature/andrei-mobile`, `feature/david-backend`. Din ea deschide câte un PR pentru fiecare sarcină terminată, iar după merge continuă pe aceeași ramură (`git merge origin/main`). Pentru o sarcină mai mare se poate crea și o ramură separată din `main`: `feature/<descriere>`, `fix/<descriere>`, `chore/<descriere>` sau `docs/<descriere>`.
 2. Commit-urile urmează [Conventional Commits](https://www.conventionalcommits.org/):
    - `feat: add task creation form`;
    - `fix: correct overdue status at midnight`;
@@ -146,12 +146,12 @@ Versiunile urmează [Semantic Versioning](https://semver.org/lang/ro/), **MAJOR.
 
 ## Milestone-uri
 
-| Milestone | Conținut                                                                | Termen     |
-| --------- | ----------------------------------------------------------------------- | ---------- |
-| M0        | Project charter aprobat                                                 | 15.10.2026 |
-| M1        | Setup: repository, proiect Supabase, schema BD, board Trello, schițe UI | 25.10.2026 |
-| M2        | MVP: adăugare / ștergere activități + cele 4 statusuri (R1–R3)          | 15.11.2026 |
-| M3        | Autentificare, sincronizare și categorii (R4, R5)                       | 29.11.2026 |
-| M4        | Remindere și statistici de eficiență (R6, R7)                           | 13.12.2026 |
-| M5        | Activități de grup (R8)                                                 | 10.01.2027 |
-| M6        | Testare finală, publicare, documentație completă                        | 17.01.2027 |
+Termenele vin din [Project Charter](docs/project-charter/Schita_ProjectCharter.md), după ședințele cursului, și sunt [milestone-uri pe GitHub](https://github.com/seba-dvd/KubiDoIt/milestones). Fiecare sarcină e un [issue](https://github.com/seba-dvd/KubiDoIt/issues) cu responsabil, iar ghidul fiecărui membru e în [docs/echipa/](docs/echipa/README.md).
+
+| Termen     | Ședința | Conținut                                                                                                       |
+| ---------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| 22.10.2026 | 2       | **L1**: planificare și specificații (charter, arhitectură, schema BD, wireframe-uri, Supabase, Trello, GitHub) |
+| 05.11.2026 | 3       | Punct de control: aplicația web cu adăugare / ștergere, cele 4 statusuri și autentificare (R1–R3, R5)          |
+| 19.11.2026 | 4       | **L2**: aplicația web cu R1–R7, publicată pe Vercel, + documentație                                            |
+| 03.12.2026 | 5       | Punct de control: aplicația mobilă cu R1–R5, conectată la același backend                                      |
+| 17.12.2026 | 6       | **L3**: aplicația mobilă completă (notificări, APK) + documentație; R8 dacă timpul permite                     |
