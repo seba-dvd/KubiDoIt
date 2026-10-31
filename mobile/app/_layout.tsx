@@ -8,6 +8,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'react-native';
 import { MD3DarkTheme, MD3LightTheme, PaperProvider, type MD3Theme } from 'react-native-paper';
 
+import { TasksProvider } from '@/state/TasksProvider';
+
 export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
@@ -40,9 +42,15 @@ export default function RootLayout() {
   return (
     <PaperProvider theme={isDark ? MD3DarkTheme : MD3LightTheme}>
       <ThemeProvider value={isDark ? darkNavigationTheme : lightNavigationTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+        <TasksProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="add-task"
+              options={{ presentation: 'modal', title: 'Activitate nouă' }}
+            />
+          </Stack>
+        </TasksProvider>
         <StatusBar style="auto" />
       </ThemeProvider>
     </PaperProvider>

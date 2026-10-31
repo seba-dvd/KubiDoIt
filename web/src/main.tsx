@@ -4,9 +4,12 @@ import { RouterProvider } from 'react-router/dom';
 
 import './index.css';
 import { router } from './router';
+import { TasksProvider } from './state/TasksProvider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <TasksProvider>
+      <RouterProvider router={router} />
+    </TasksProvider>
   </StrictMode>,
 );

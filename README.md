@@ -140,6 +140,10 @@ Fișierele `.env` nu se urcă pe GitHub: sunt în `.gitignore`. Fiecare membru a
 3. Înainte de Pull Request: `npm run lint`, `npm run typecheck`, `npm test`.
 4. Pull Request în `main`, revizuit de cel puțin un coleg; fiecare sarcină are un card în Trello.
 
+## Versionare
+
+Versiunile urmează [Semantic Versioning](https://semver.org/lang/ro/), **MAJOR.MINOR.PATCH**, după tipul commit-urilor: `feat:` crește MINOR, `fix:` / `refactor:` / `docs:` / `chore:` cresc PATCH, iar o schimbare incompatibilă (`feat!:` sau `BREAKING CHANGE:`) crește MAJOR. Fiecare versiune are un tag `vX.Y.Z` și un [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases). Istoricul și pașii de publicare sunt în [CHANGELOG.md](CHANGELOG.md).
+
 ## Milestone-uri
 
 | Milestone | Conținut                                                                | Termen     |

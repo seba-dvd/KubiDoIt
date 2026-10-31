@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) with page/screen shells; the R1–R3 MVP on local mock data is built on `feature/mvp-r1-r3`. Supabase auth/sync and R4–R8 are not wired yet. The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
+KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) and the R1–R3 MVP runs on both apps on local mock data (demo mode). Supabase auth/sync and R4–R8 are not wired yet. `main` is protected: changes land through PRs with 1 approval and a green `verify` CI check. The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
 
 ### Version pins (keep them in sync)
 
@@ -55,4 +55,5 @@ Node **22.12+** is required (24 LTS recommended).
 - Never commit directly to `main`. Branches: `feature/<slug>`, `fix/<slug>`, `chore/<slug>`, `docs/<slug>`.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:` …). Commit subjects in English following the Conventional Commits examples in the README.
 - Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. PRs need at least one teammate review.
+- **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).
 - Team ownership (useful when deciding who/what a change touches): web → Mituleci Tudor, mobile → Kubanda Andrei, Supabase/backend/security → Pilat David, PM/docs/testing → Nicolescu Andreas.
