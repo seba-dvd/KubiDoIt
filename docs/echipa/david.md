@@ -70,7 +70,7 @@ git merge origin/main   # înainte de fiecare sarcină nouă
 - Cheia **`service_role` / secret** nu apare în niciun fișier din repository, în niciun issue și în niciun mesaj. În aplicații intră doar cheia anon / publishable. Datele sunt protejate de RLS.
 - Migrațiile se aplică **în ordinea numelor**. O migrație deja aplicată nu se mai modifică: orice schimbare înseamnă un fișier nou în `supabase/migrations/`, cu timestamp mai mare.
 - RLS e activat pe toate tabelele. Politicile folosesc `(select auth.uid())`. Rolul `anon` nu are drepturi pe tabele.
-- După fiecare migrație regenerezi tipurile (`npx supabase gen types typescript --project-id <id> > shared/src/database.types.ts`) și rulezi testul RLS din `supabase/tests/`.
+- După fiecare migrație regenerezi tipurile (`npx supabase gen types --remote > shared/src/database.types.ts`, în Git Bash) și rulezi testul RLS: `npx supabase db query --remote -f supabase/tests/rls_tasks.sql`.
 - `shared/` rămâne TypeScript pur, fără React și fără API-uri DOM / React Native. Funcțiile din `shared/src/api/` primesc clientul Supabase ca parametru și au teste Vitest cu client simulat.
 - Logica nouă comună ambelor aplicații intră în `shared/`, nu în `web/` sau `mobile/`.
 

@@ -46,7 +46,7 @@ Web uses Vite-style vars (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`); mobile
 
 **Adding deps:** web via `npm install <pkg> -w @kubidoit/web` from root. **Mobile is the exception** — `cd mobile && npx expo install <pkg>` so Expo picks a version compatible with the current SDK; do not install mobile deps with plain `npm install -w`.
 
-**Supabase migrations:** either paste each file into the Supabase SQL Editor in filename order, or `npx supabase login && npx supabase link --project-ref <id> && npx supabase db push`.
+**Supabase migrations:** either paste each file into the Supabase SQL Editor in filename order, or `npx supabase login && npx supabase link --project-ref <id> && npx supabase db push --remote` (Supabase CLI 3 targets the local Docker stack unless `--remote` is passed). Regenerate types with `npx supabase gen types --remote > shared/src/database.types.ts` (Git Bash; PowerShell 5 `>` writes UTF-16). The RLS test is `supabase/tests/rls_tasks.sql`: run it with `npx supabase db query --remote -f supabase/tests/rls_tasks.sql` or paste it into the SQL Editor; it rolls back and fails on the first broken `assert`.
 
 Node **22.12+** is required (24 LTS recommended).
 
