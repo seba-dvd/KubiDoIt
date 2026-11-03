@@ -6,16 +6,15 @@ Toate modificările importante ale proiectului KubiDoIt sunt notate aici. Format
 
 Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor ([Conventional Commits](https://www.conventionalcommits.org/)) incluse de la versiunea anterioară:
 
-| Se schimbă     | Când                                                                                                                       | Commit-uri                                                | Exemplu        |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------------- |
-| **MAJOR** | o schimbare incompatibilă: date vechi care nu mai merg, API din `shared/` schimbat, migrație care rupe compatibilitatea | `feat!:`, `fix!:` sau `BREAKING CHANGE:` în corp   | 1.4.2 → 2.0.0 |
-| **MINOR** | o funcționalitate nouă, compatibilă cu ce exista                                                                         | `feat:`                                                 | 1.3.4 → 1.4.0 |
-| **PATCH** | corecturi și orice altceva care nu adaugă funcționalități                                                              | `fix:`, `refactor:`, `docs:`, `chore:`, `test:` | 1.4.0 → 1.4.1 |
+| Se schimbă | Când                                                                                                                    | Commit-uri                                       | Exemplu       |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------- |
+| **MAJOR**  | o schimbare incompatibilă: date vechi care nu mai merg, API din `shared/` schimbat, migrație care rupe compatibilitatea | `feat!:`, `fix!:` sau `BREAKING CHANGE:` în corp | 1.4.2 → 2.0.0 |
+| **MINOR**  | o funcționalitate nouă, compatibilă cu ce exista                                                                        | `feat:`                                          | 1.3.4 → 1.4.0 |
+| **PATCH**  | corecturi și orice altceva care nu adaugă funcționalități                                                               | `fix:`, `refactor:`, `docs:`, `chore:`, `test:`  | 1.4.0 → 1.4.1 |
 
 - Versiunea e aceeași pentru tot monorepo-ul: `package.json` din rădăcină, `shared/`, `web/`, `mobile/` și `mobile/app.json`.
 - Fiecare versiune are un tag Git `vX.Y.Z` și o pagină de [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases).
 - Pașii pentru o versiune nouă sunt în secțiunea [Cum se publică o versiune](#cum-se-publică-o-versiune).
-
 
 ## [1.4.0] – 2026-11-03
 
@@ -28,8 +27,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 
 - Ghiduri pentru fiecare membru în `docs/echipa/` și calendarul din charter.
 - Sarcini de cod pentru Andreas (teste automate, confirmarea ștergerii).
-[1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0
-
+  [1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0
 
 ## [1.3.4][1.3.4] – 2026-10-14
 
@@ -112,6 +110,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
    ```
 
    apoi actualizează manual `expo.version` din `mobile/app.json`.
+
 4. Commit `chore(release): vX.Y.Z`, prin Pull Request ca orice altă modificare.
 5. După ce PR-ul ajunge în `main`, creează tag-ul și Release-ul pe commit-ul din `main`:
 
