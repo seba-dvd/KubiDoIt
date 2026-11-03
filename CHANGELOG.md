@@ -16,7 +16,20 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Fiecare versiune are un tag Git `vX.Y.Z` și o pagină de [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases).
 - Pașii pentru o versiune nouă sunt în secțiunea [Cum se publică o versiune](#cum-se-publică-o-versiune).
 
-## [1.3.4] – 2026-10-14
+## [1.4.0] – 2026-11-03
+
+### Adăugat
+
+- `shared/`: tipurile generate din baza Supabase (`database.types.ts`).
+- `shared/`: stratul de date pentru activități (`listTasks`, `createTask`, `deleteTask`, `setTaskStatus`), cu clientul Supabase primit ca parametru, plus teste cu un client simulat.
+
+### Documentație
+
+- Ghiduri pentru fiecare membru în `docs/echipa/` și calendarul din charter.
+- Sarcini de cod pentru Andreas (teste automate, confirmarea ștergerii).
+  [1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0
+
+## [1.3.4][1.3.4] – 2026-10-14
 
 ### Corectat
 
@@ -27,25 +40,25 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Versiunea `1.3.4` setată în toate pachetele; adăugat acest fișier.
 - `mobile/.gitignore` generat de `expo start` este acum urmărit în Git.
 
-## [1.3.3] – 2026-10-14
+## [1.3.3][1.3.3] – 2026-10-14
 
 ### Corectat
 
 - Web: după adăugarea unei activități, termenul revine la valoarea implicită (mâine, ora 12:00), ca pe mobil.
 
-## [1.3.2] – 2026-10-14
+## [1.3.2][1.3.2] – 2026-10-14
 
 ### Documentație
 
 - `CLAUDE.md` și `docs/plan-proiect.md` notează că MVP-ul rulează și că ramura `main` este protejată.
 
-## [1.3.1] – 2026-10-14
+## [1.3.1][1.3.1] – 2026-10-14
 
 ### Altele
 
 - CI: `actions/checkout` și `actions/setup-node` actualizate la v7 (versiunile v4 foloseau Node 20, depreciat).
 
-## [1.3.0] – 2026-10-14
+## [1.3.0][1.3.0] – 2026-10-14
 
 ### Adăugat
 
@@ -54,13 +67,13 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Mobil: tab-ul Statistici cu numărul pe status și rata de finalizare.
 - Pachetele Expo SDK 57 aduse la ultimele versiuni patch (`expo-doctor`: 21/21).
 
-## [1.2.1] – 2026-10-14
+## [1.2.1][1.2.1] – 2026-10-14
 
 ### Modificat
 
 - Funcțiile pentru termenul implicit și pentru câmpul `datetime-local` mutate din `web/` în `shared/`, ca să le folosească și aplicația mobilă.
 
-## [1.2.0] – 2026-10-14
+## [1.2.0][1.2.0] – 2026-10-14
 
 ### Adăugat
 
@@ -68,7 +81,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Web: statusurile se recalculează la 30 de secunde, deci o activitate devine „Restant” fără reîncărcarea paginii.
 - Web: pagina Statistici cu numărul pe status și rata de finalizare.
 
-## [1.1.0] – 2026-10-14
+## [1.1.0][1.1.0] – 2026-10-14
 
 ### Adăugat
 
@@ -76,7 +89,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - `shared/`: date mock cu termene relative la momentul curent, ca cele 4 statusuri să apară mereu.
 - `shared/`: identificatori locali pentru modul demo.
 
-## [1.0.0] – 2026-10-14
+## [1.0.0][1.0.0] – 2026-10-14
 
 ### Adăugat
 
@@ -91,15 +104,20 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 1. Alege numărul nou după tabelul de mai sus, pe baza commit-urilor de la ultimul tag (`git log vX.Y.Z..HEAD --oneline`).
 2. Adaugă secțiunea versiunii în acest fișier, deasupra celei anterioare.
 3. Setează versiunea în toate pachetele, din rădăcină:
+
    ```bash
    npm version X.Y.Z --workspaces --include-workspace-root --no-git-tag-version
    ```
+
    apoi actualizează manual `expo.version` din `mobile/app.json`.
+
 4. Commit `chore(release): vX.Y.Z`, prin Pull Request ca orice altă modificare.
 5. După ce PR-ul ajunge în `main`, creează tag-ul și Release-ul pe commit-ul din `main`:
+
    ```bash
    git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin vX.Y.Z
    ```
+
    ```bash
    gh release create vX.Y.Z --verify-tag --title "vX.Y.Z" --notes "<secțiunea din CHANGELOG>"
    ```

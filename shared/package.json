@@ -1,6 +1,6 @@
 {
   "name": "@kubidoit/shared",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "private": true,
   "description": "Cod comun pentru web și mobil: tipuri, logica statusurilor, etichete, culori, date mock",
   "type": "module",
