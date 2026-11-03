@@ -117,8 +117,9 @@ Dependențele noi se instalează tot din rădăcină:
      npx supabase link --project-ref <id-proiect>
      ```
      ```bash
-     npx supabase db push
+     npx supabase db push --remote
      ```
+     Fără `--remote`, Supabase CLI 3 încearcă baza locală din Docker.
 3. Copiază cheile din _Project Settings → API Keys_:
    - **Project URL** merge în `VITE_SUPABASE_URL` (web/.env) și în `EXPO_PUBLIC_SUPABASE_URL` (mobile/.env);
    - cheia **anon** (sau **publishable**, în proiectele noi) merge în `VITE_SUPABASE_ANON_KEY` și în `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
