@@ -8,3 +8,4 @@ export * from './local-task';
 export * from './tasks-reducer';
 export * from './stats';
 export * from './mock';
+export * from './api';
