@@ -106,50 +106,46 @@ Tabelul `tasks` este adăugat în publicația `supabase_realtime`. Clienții se 
 În ordinea numelor fișierelor, prin una dintre metode:
 
 - **SQL Editor:** _SQL Editor → New query_, lipești conținutul fișierului, _Run_;
-- **Supabase CLI:** `npx supabase login`, `npx supabase link --project-ref <id-proiect>`, `npx supabase db push`.
+- **Supabase CLI:** `npx supabase login`, `npx supabase link --project-ref <id-proiect>`, `npx supabase db push --remote`.
 
-După aplicare, tipurile TypeScript se pot genera cu:
+Din Supabase CLI 3, comenzile `db` și `gen` țintesc implicit baza locală din Docker; `--remote` le trimite la proiectul legat.
+
+După aplicare, tipurile TypeScript se generează cu (în Git Bash; în PowerShell 5, `>` poate scrie fișierul în UTF-16):
 
 ```bash
-npx supabase gen types typescript --project-id <id-proiect> > shared/src/database.types.ts
+npx supabase gen types --remote > shared/src/database.types.ts
 ```
 
-## Test rapid pentru RLS
+## Testul RLS
 
-1. În _Authentication → Users → Add user_, creează doi utilizatori de test, A și B, și notează-le ID-urile.
-2. În SQL Editor rulează (înlocuiește ID-urile; `rollback` anulează totul la final):
+Testul este în [`supabase/tests/rls_tasks.sql`](../supabase/tests/rls_tasks.sql). Își creează singur doi utilizatori, A și B, acționează pe rând ca fiecare dintre ei și ca `anon`, iar la final face `rollback`, deci în bază nu rămâne nimic. Fiecare verificare este un `assert`: dacă una pică, rularea se oprește cu mesajul ei.
 
-```sql
-begin;
+Se rulează după fiecare migrație care schimbă politicile, prin una dintre metode:
 
--- Acționăm ca utilizatorul A
-select set_config('request.jwt.claims', '{"sub":"<ID-A>","role":"authenticated"}', true);
-set local role authenticated;
+- **SQL Editor:** lipești tot fișierul și apeși _Run_. Toate verificările trec dacă apare „Success. No rows returned”.
+- **Supabase CLI:** `npx supabase db query --remote -f supabase/tests/rls_tasks.sql`. Toate verificările trec dacă comanda se termină fără eroare.
 
-insert into public.tasks (title, due_at) values ('Activitatea lui A', now() + interval '1 day');
-select count(*) as vizibile_pentru_A from public.tasks;            -- 1
+Nu este un test pgTAP, deci nu se rulează cu `supabase test db`.
 
--- Acționăm ca utilizatorul B
-reset role;
-select set_config('request.jwt.claims', '{"sub":"<ID-B>","role":"authenticated"}', true);
-set local role authenticated;
+### Ce verifică
 
-select count(*) as vizibile_pentru_B from public.tasks;            -- 0
-update public.tasks set title = 'modificat de B';                 -- UPDATE 0
-delete from public.tasks;                                           -- DELETE 0
-select count(*) as categorii_vazute_de_B from public.categories;   -- 3 (doar cele predefinite)
+| Cine                      | Verificare                                                                                          |
+| ------------------------- | --------------------------------------------------------------------------------------------------- |
+| A                         | își creează o activitate și o vede; `user_id` se completează singur din `auth.uid()`                |
+| A                         | nu poate crea o activitate pe numele lui B și nici o categorie predefinită                          |
+| B                         | nu vede activitatea lui A; UPDATE și DELETE pe ea ating 0 rânduri                                   |
+| B                         | vede doar cele 3 categorii predefinite și nu le poate modifica sau șterge                           |
+| A, după încercările lui B | activitatea e neatinsă; nu vede categoria personală a lui B                                         |
+| A                         | poate folosi o categorie predefinită, dar nu pe cea a lui B (cheia străină ignoră RLS, politica nu) |
+| `anon`                    | `permission denied` la citirea din `tasks` și din `categories`                                      |
 
-rollback;
-```
+### Rezultate
 
-3. Ca `anon` nu se poate citi nimic:
+| Data       | Proiect                        | Migrații                     | Rezultat                     |
+| ---------- | ------------------------------ | ---------------------------- | ---------------------------- |
+| 03.11.2026 | KubiDoIt (cloud, eu-central-1) | `20261014120000_init_schema` | toate verificările au trecut |
 
-```sql
-begin;
-set local role anon;
-select * from public.tasks;   -- eroare: permission denied for table tasks
-rollback;
-```
+Ca verificare a testului însuși, o variantă cu o așteptare greșită intenționat (B vede 99 de activități) a picat cu mesajul `B vede activitatea lui A`, deci `assert`-urile sunt active. După ambele rulări, baza a rămas fără utilizatori de test și fără activități.
 
 ## Extensia pentru grupuri (R8, migrația 2)
 
