@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react';
 type IconProps = ComponentProps<typeof MaterialCommunityIcons>;
 
 function tabIcon(name: IconProps['name']) {
-  return ({ color, size }: { color: IconProps['color']; size: number }) => (
+  return ({ color, size }: { color: any; size: number }) => (
     <MaterialCommunityIcons name={name} color={color} size={size} />
   );
 }

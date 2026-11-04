@@ -66,7 +66,7 @@ export default function TasksScreen() {
           </Text>
         }
       />
-      <FAB icon="plus" label="Adaugă" style={styles.fab} onPress={() => router.push('/add-task')} />
+      <FAB icon="plus" label="Adaugă" style={styles.fab} onPress={() => router.push('/add-task' as never)} />
     </View>
   );
 }
