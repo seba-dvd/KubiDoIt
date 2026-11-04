@@ -120,7 +120,7 @@ describe('getReminderTime', () => {
   it('calculează reminderul cu o oră înainte pentru activități critice', () => {
     const criticalTask = task('crit', '2026-10-14T12:00:00Z');
     criticalTask.is_critical = true;
-    
+
     const reminder = getReminderTime(criticalTask);
     expect(reminder?.toISOString()).toBe('2026-10-14T11:00:00.000Z');
   });

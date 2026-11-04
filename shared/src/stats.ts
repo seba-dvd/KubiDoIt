@@ -44,11 +44,11 @@ export function getCompletedThisWeekCount(tasks: readonly Task[], now: Date): nu
   const day = now.getUTCDay();
   // Ajustăm pentru ca Luni să fie prima zi (0 = Duminică, deci devine 6)
   const diffToMonday = now.getUTCDate() - day + (day === 0 ? -6 : 1);
-  
+
   const start = new Date(now);
   start.setUTCDate(diffToMonday);
   start.setUTCHours(0, 0, 0, 0);
-  
+
   const end = new Date(start);
   end.setUTCDate(start.getUTCDate() + 6);
   end.setUTCHours(23, 59, 59, 999);
