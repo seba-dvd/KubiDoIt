@@ -18,7 +18,9 @@ export function DueDateField({ value, onChange }: DueDateFieldProps) {
           value={value}
           mode="datetime"
           display="compact"
-          onValueChange={(_event, date) => onChange(date)}
+          onValueChange={(_event: unknown, date?: Date) => {
+            if (date) onChange(date);
+          }}
         />
       </View>
     );
@@ -30,7 +32,9 @@ export function DueDateField({ value, onChange }: DueDateFieldProps) {
       value,
       mode,
       is24Hour: true,
-      onValueChange: (_event, picked) => onChange(merge(value, picked, mode)),
+      onValueChange: (_event: unknown, picked?: Date) => {
+        if (picked) onChange(merge(value, picked, mode));
+      },
     });
 
   return (

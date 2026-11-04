@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
 import { createMockTasks } from './mock';
-import { completionRate, countByStatus, sortTasksForDisplay } from './stats';
+import {
+  completionRate,
+  countByStatus,
+  sortTasksForDisplay,
+  getCompletedTodayCount,
+  getCompletedThisWeekCount,
+  getReminderTime,
+} from './stats';
 import { computeStatus } from './status';
 import type { ManualStatus, Task } from './types';
 
@@ -79,5 +86,47 @@ describe('createMockTasks', () => {
       const statuses = new Set(createMockTasks(now).map((t) => computeStatus(t, now)));
       expect(statuses).toEqual(new Set(['overdue', 'upcoming', 'completed', 'canceled']));
     }
+  });
+});
+
+describe('getCompletedTodayCount & getCompletedThisWeekCount', () => {
+  // NOW din acest fișier este '2026-10-14T12:00:00.000Z' (o zi de Miercuri)
+  const statsTasks: Task[] = [
+    task('today1', '2026-10-14T10:00:00Z'), // Azi
+    task('today2', '2026-10-14T10:00:00Z'), // Azi
+    task('monday', '2026-10-12T10:00:00Z'), // Luni (aceeași săptămână)
+    task('sunday', '2026-10-18T10:00:00Z'), // Duminică (aceeași săptămână)
+    task('last-week', '2026-10-11T10:00:00Z'), // Duminica trecută (săptămâna anterioară)
+  ];
+
+  // Setăm data de finalizare pentru teste
+  statsTasks[0].completed_at = '2026-10-14T15:00:00Z'; // azi
+  statsTasks[1].completed_at = '2026-10-14T23:59:00Z'; // azi
+  statsTasks[2].completed_at = '2026-10-12T15:00:00Z'; // luni
+  statsTasks[3].completed_at = '2026-10-18T15:00:00Z'; // duminică
+  statsTasks[4].completed_at = '2026-10-11T15:00:00Z'; // săptămâna trecută
+
+  it('numără doar activitățile finalizate azi', () => {
+    expect(getCompletedTodayCount(statsTasks, NOW)).toBe(2);
+  });
+
+  it('numără activitățile finalizate săptămâna aceasta (Luni-Duminică)', () => {
+    // Trebuie să găsească 4 (luni, miercuri x2, duminică). Duminica trecută nu se pune.
+    expect(getCompletedThisWeekCount(statsTasks, NOW)).toBe(4);
+  });
+});
+
+describe('getReminderTime', () => {
+  it('calculează reminderul cu o oră înainte pentru activități critice', () => {
+    const criticalTask = task('crit', '2026-10-14T12:00:00Z');
+    criticalTask.is_critical = true;
+
+    const reminder = getReminderTime(criticalTask);
+    expect(reminder?.toISOString()).toBe('2026-10-14T11:00:00.000Z');
+  });
+
+  it('returnează null dacă activitatea nu e critică', () => {
+    const normalTask = task('norm', '2026-10-14T12:00:00Z');
+    expect(getReminderTime(normalTask)).toBeNull();
   });
 });

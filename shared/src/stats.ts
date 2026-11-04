@@ -25,3 +25,44 @@ export function sortTasksForDisplay(tasks: readonly Task[], now: Date): Task[] {
     (a, b) => rank(a) - rank(b) || Date.parse(a.due_at) - Date.parse(b.due_at),
   );
 }
+
+/** Returnează numărul de activități finalizate strict în ziua curentă (UTC). */
+export function getCompletedTodayCount(tasks: readonly Task[], now: Date): number {
+  return tasks.filter((t) => {
+    if (!t.completed_at) return false;
+    const d = new Date(t.completed_at);
+    return (
+      d.getUTCFullYear() === now.getUTCFullYear() &&
+      d.getUTCMonth() === now.getUTCMonth() &&
+      d.getUTCDate() === now.getUTCDate()
+    );
+  }).length;
+}
+
+/** Returnează numărul de activități finalizate în săptămâna curentă (Luni - Duminică, UTC). */
+export function getCompletedThisWeekCount(tasks: readonly Task[], now: Date): number {
+  const day = now.getUTCDay();
+  // Ajustăm pentru ca Luni să fie prima zi (0 = Duminică, deci devine 6)
+  const diffToMonday = now.getUTCDate() - day + (day === 0 ? -6 : 1);
+
+  const start = new Date(now);
+  start.setUTCDate(diffToMonday);
+  start.setUTCHours(0, 0, 0, 0);
+
+  const end = new Date(start);
+  end.setUTCDate(start.getUTCDate() + 6);
+  end.setUTCHours(23, 59, 59, 999);
+
+  return tasks.filter((t) => {
+    if (!t.completed_at) return false;
+    const d = new Date(t.completed_at);
+    return d >= start && d <= end;
+  }).length;
+}
+
+/** Returnează momentul reminderului (cu 1 oră înainte) doar pentru activitățile critice. */
+export function getReminderTime(task: Task): Date | null {
+  if (!task.is_critical || !task.due_at) return null;
+  const due = new Date(task.due_at);
+  return new Date(due.getTime() - 60 * 60 * 1000); // minus 1 oră
+}
