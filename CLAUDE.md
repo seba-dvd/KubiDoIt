@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) with page/screen shells; the R1–R3 MVP on local mock data is built on `feature/mvp-r1-r3`. Supabase auth/sync and R4–R8 are not wired yet. The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
+KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) and the R1–R3 MVP runs on both apps on local mock data (demo mode). Supabase auth/sync and R4–R8 are not wired yet. `main` is protected: changes land through PRs with a green `verify` CI check (a teammate review is recommended, not required) and merge commits only (no squash/rebase, so version tags stay in history). The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
 
 ### Version pins (keep them in sync)
 
@@ -46,13 +46,15 @@ Web uses Vite-style vars (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`); mobile
 
 **Adding deps:** web via `npm install <pkg> -w @kubidoit/web` from root. **Mobile is the exception** — `cd mobile && npx expo install <pkg>` so Expo picks a version compatible with the current SDK; do not install mobile deps with plain `npm install -w`.
 
-**Supabase migrations:** either paste each file into the Supabase SQL Editor in filename order, or `npx supabase login && npx supabase link --project-ref <id> && npx supabase db push`.
+**Supabase migrations:** either paste each file into the Supabase SQL Editor in filename order, or `npx supabase login && npx supabase link --project-ref <id> && npx supabase db push --remote` (Supabase CLI 3 targets the local Docker stack unless `--remote` is passed). Regenerate types with `npx supabase gen types --remote > shared/src/database.types.ts` (Git Bash; PowerShell 5 `>` writes UTF-16). The RLS test is `supabase/tests/rls_tasks.sql`: run it with `npx supabase db query --remote -f supabase/tests/rls_tasks.sql` or paste it into the SQL Editor; it rolls back and fails on the first broken `assert`.
 
 Node **22.12+** is required (24 LTS recommended).
 
 ## Workflow conventions
 
-- Never commit directly to `main`. Branches: `feature/<slug>`, `fix/<slug>`, `chore/<slug>`, `docs/<slug>`.
+- Never commit directly to `main`. Each member has a personal branch created from their GitHub issue (`docs/andreas-pm`, `feature/tudor-web`, `feature/andrei-mobile`, `feature/david-backend`): one PR per task from it with `Closes #<issue>`, and the branch is kept after merge. Larger work may use a separate `feature/<slug>`, `fix/<slug>`, `chore/<slug>` or `docs/<slug>` branch.
+- Every plan task is a GitHub issue, grouped into milestones by the charter dates (Ședința 2–6: 22.10, 05.11, 19.11, 03.12, 17.12.2026). Per-member guides live in `docs/echipa/`.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:` …). Commit subjects in English following the Conventional Commits examples in the README.
 - Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. PRs need at least one teammate review.
+- **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).
 - Team ownership (useful when deciding who/what a change touches): web → Mituleci Tudor, mobile → Kubanda Andrei, Supabase/backend/security → Pilat David, PM/docs/testing → Nicolescu Andreas.

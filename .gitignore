@@ -47,3 +47,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Setările locale ale fiecăruia în Claude Code
+.claude/settings.local.json
