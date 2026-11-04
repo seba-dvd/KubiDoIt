@@ -117,8 +117,9 @@ Dependențele noi se instalează tot din rădăcină:
      npx supabase link --project-ref <id-proiect>
      ```
      ```bash
-     npx supabase db push
+     npx supabase db push --remote
      ```
+     Fără `--remote`, Supabase CLI 3 încearcă baza locală din Docker.
 3. Copiază cheile din _Project Settings → API Keys_:
    - **Project URL** merge în `VITE_SUPABASE_URL` (web/.env) și în `EXPO_PUBLIC_SUPABASE_URL` (mobile/.env);
    - cheia **anon** (sau **publishable**, în proiectele noi) merge în `VITE_SUPABASE_ANON_KEY` și în `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
@@ -131,7 +132,7 @@ Fișierele `.env` nu se urcă pe GitHub: sunt în `.gitignore`. Fiecare membru a
 
 ## Flux de lucru Git
 
-1. Nu se lucrează direct pe `main`. Pentru fiecare sarcină se creează o ramură din `main`: `feature/<descriere>`, `fix/<descriere>`, `chore/<descriere>` sau `docs/<descriere>`.
+1. Nu se lucrează direct pe `main`. Fiecare membru are o ramură proprie, creată din issue-ul lui pe GitHub: `docs/andreas-pm`, `feature/tudor-web`, `feature/andrei-mobile`, `feature/david-backend`. Din ea deschide câte un PR pentru fiecare sarcină terminată, iar după merge continuă pe aceeași ramură (`git merge origin/main`). Pentru o sarcină mai mare se poate crea și o ramură separată din `main`: `feature/<descriere>`, `fix/<descriere>`, `chore/<descriere>` sau `docs/<descriere>`.
 2. Commit-urile urmează [Conventional Commits](https://www.conventionalcommits.org/):
    - `feat: add task creation form`;
    - `fix: correct overdue status at midnight`;
@@ -140,14 +141,18 @@ Fișierele `.env` nu se urcă pe GitHub: sunt în `.gitignore`. Fiecare membru a
 3. Înainte de Pull Request: `npm run lint`, `npm run typecheck`, `npm test`.
 4. Pull Request în `main`, revizuit de cel puțin un coleg; fiecare sarcină are un card în Trello.
 
+## Versionare
+
+Versiunile urmează [Semantic Versioning](https://semver.org/lang/ro/), **MAJOR.MINOR.PATCH**, după tipul commit-urilor: `feat:` crește MINOR, `fix:` / `refactor:` / `docs:` / `chore:` cresc PATCH, iar o schimbare incompatibilă (`feat!:` sau `BREAKING CHANGE:`) crește MAJOR. Fiecare versiune are un tag `vX.Y.Z` și un [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases). Istoricul și pașii de publicare sunt în [CHANGELOG.md](CHANGELOG.md).
+
 ## Milestone-uri
 
-| Milestone | Conținut                                                                | Termen     |
-| --------- | ----------------------------------------------------------------------- | ---------- |
-| M0        | Project charter aprobat                                                 | 15.10.2026 |
-| M1        | Setup: repository, proiect Supabase, schema BD, board Trello, schițe UI | 25.10.2026 |
-| M2        | MVP: adăugare / ștergere activități + cele 4 statusuri (R1–R3)          | 15.11.2026 |
-| M3        | Autentificare, sincronizare și categorii (R4, R5)                       | 29.11.2026 |
-| M4        | Remindere și statistici de eficiență (R6, R7)                           | 13.12.2026 |
-| M5        | Activități de grup (R8)                                                 | 10.01.2027 |
-| M6        | Testare finală, publicare, documentație completă                        | 17.01.2027 |
+Termenele vin din [Project Charter](docs/project-charter/Schita_ProjectCharter.md), după ședințele cursului, și sunt [milestone-uri pe GitHub](https://github.com/seba-dvd/KubiDoIt/milestones). Fiecare sarcină e un [issue](https://github.com/seba-dvd/KubiDoIt/issues) cu responsabil, iar ghidul fiecărui membru e în [docs/echipa/](docs/echipa/README.md).
+
+| Termen     | Ședința | Conținut                                                                                                       |
+| ---------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| 22.10.2026 | 2       | **L1**: planificare și specificații (charter, arhitectură, schema BD, wireframe-uri, Supabase, Trello, GitHub) |
+| 05.11.2026 | 3       | Punct de control: aplicația web cu adăugare / ștergere, cele 4 statusuri și autentificare (R1–R3, R5)          |
+| 19.11.2026 | 4       | **L2**: aplicația web cu R1–R7, publicată pe Vercel, + documentație                                            |
+| 03.12.2026 | 5       | Punct de control: aplicația mobilă cu R1–R5, conectată la același backend                                      |
+| 17.12.2026 | 6       | **L3**: aplicația mobilă completă (notificări, APK) + documentație; R8 dacă timpul permite                     |

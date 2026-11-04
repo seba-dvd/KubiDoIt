@@ -8,3 +8,4 @@ mobile/ios/
 supabase/.temp/
 supabase/.branches/
 package-lock.json
+shared/src/database.types.ts
