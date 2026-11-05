@@ -4,10 +4,10 @@ Fiecare membru are aici un ghid cu ce are de făcut, în ordine și cu termene. 
 
 | Membru            | Rol          | Ghid                     | Sarcinile pe GitHub                                 | Ramura                                                       |
 | ----------------- | ------------ | ------------------------ | --------------------------------------------------- | ------------------------------------------------------------ |
-| Nicolescu Andreas | PM + testare | [andreas.md](andreas.md) | [#2](https://github.com/seba-dvd/KubiDoIt/issues/2) | `docs/andreas-pm` (documente), `feature/andreas-tests` (cod) |
+| Nicolescu Andreas | QA + cerințe | [andreas.md](andreas.md) | [#2](https://github.com/seba-dvd/KubiDoIt/issues/2) | `docs/andreas-pm` (documente), `feature/andreas-tests` (cod) |
 | Mituleci Tudor    | web          | [tudor.md](tudor.md)     | [#3](https://github.com/seba-dvd/KubiDoIt/issues/3) | `feature/tudor-web`                                          |
 | Kubanda Andrei    | mobil        | [andrei.md](andrei.md)   | [#4](https://github.com/seba-dvd/KubiDoIt/issues/4) | `feature/andrei-mobile`                                      |
-| Pilat David       | backend      | [david.md](david.md)     | [#5](https://github.com/seba-dvd/KubiDoIt/issues/5) | `feature/david-backend`                                      |
+| Pilat David       | PM + backend | [david.md](david.md)     | [#5](https://github.com/seba-dvd/KubiDoIt/issues/5) | `feature/david-backend`                                      |
 
 Termenele vin din charter și sunt [milestone-uri pe GitHub](https://github.com/seba-dvd/KubiDoIt/milestones):
 

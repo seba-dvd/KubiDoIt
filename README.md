@@ -8,12 +8,12 @@ Proiect realizat în cadrul disciplinei SOPM – Universitatea Transilvania din 
 
 ## Echipa
 
-| Membru            | Rol                      | Responsabil de                             |
-| ----------------- | ------------------------ | ------------------------------------------ |
-| Nicolescu Andreas | Project Manager          | planificare, Trello, documentație, testare |
-| Mituleci Tudor    | Dezvoltator Frontend Web | `web/`                                     |
-| Kubanda Andrei    | Dezvoltator Mobil        | `mobile/`                                  |
-| Pilat David       | Dezvoltator Backend      | `supabase/`, securitate, sincronizare      |
+| Membru            | Rol                                   | Responsabil de                                                        |
+| ----------------- | ------------------------------------- | --------------------------------------------------------------------- |
+| Nicolescu Andreas | QA Lead + analist de cerințe          | cerințe (cazuri de utilizare, user stories), testare, documentație    |
+| Mituleci Tudor    | Dezvoltator Frontend Web              | `web/`                                                                |
+| Kubanda Andrei    | Dezvoltator Mobil                     | `mobile/`                                                             |
+| Pilat David       | Project Manager + Dezvoltator Backend | planificare, Trello, livrabile; `supabase/`, securitate, sincronizare |
 
 Coordonator: Corneliu Zaharia.
 
