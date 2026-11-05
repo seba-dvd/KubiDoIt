@@ -29,7 +29,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 
 ### Documentație
 
-- Roluri noi în echipă (charter v1.1): Pilat David devine Project Manager și rămâne dezvoltator backend; Nicolescu Andreas devine QA Lead și analist de cerințe. Actualizate charter-ul, planul, ghidurile din `docs/echipa/`, lista pachetului L1, README-ul și `CLAUDE.md`. Sarcină nouă: M1.11, user stories (#70).
+- Rolurile din echipă corectate după cum s-a lucrat de fapt (charter v1.1): Pilat David apare ca Project Manager, rol pe care l-a avut de la începutul proiectului, și rămâne dezvoltator backend; Nicolescu Andreas apare ca QA Lead și analist de cerințe. Actualizate charter-ul, planul, ghidurile din `docs/echipa/`, lista pachetului L1, README-ul și `CLAUDE.md`. Sarcină nouă: M1.11, user stories (#70).
 - Cazurile de utilizare R1–R8 cu diagrama (`docs/cazuri-de-utilizare.md`), planul de testare (`docs/testare/plan-de-testare.md`) și lista pachetului L1 (`docs/pachet-L1.md`).
 - Wireframe-urile aplicației mobile în `docs/wireframes/mobile/`.
 - `schema-bd.md` descrie testul RLS și rezultatele lui; comenzile Supabase CLI folosesc `--remote`.

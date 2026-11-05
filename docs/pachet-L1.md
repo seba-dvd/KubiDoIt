@@ -1,6 +1,6 @@
 # Pachetul L1 – planificare și specificații de proiectare
 
-Responsabil: Pilat David (Project Manager din 05.11.2026; lista a fost începută de Nicolescu Andreas). Termen: ședința 2 (22.10.2026), depășit. Livrabilul L1 conține, conform charter-ului: project charter, specificații de proiectare (arhitectură, schema bazei de date, wireframe-uri UI, cazuri de utilizare), board Trello, repository GitHub.
+Responsabil: Pilat David (Project Manager). Prima variantă a acestei liste a scris-o Nicolescu Andreas. Termen: ședința 2 (22.10.2026), depășit. Livrabilul L1 conține, conform charter-ului: project charter, specificații de proiectare (arhitectură, schema bazei de date, wireframe-uri UI, cazuri de utilizare), board Trello, repository GitHub.
 
 ## Lista de verificare
 
@@ -52,4 +52,4 @@ Găsite de Andreas la citirea documentelor; de rezolvat împreună în #7.
 
 **Către coordonator (la predare):**
 
-> Bună ziua, vă trimit pachetul L1 al proiectului KubiDoIt: charter-ul (versiunea 1.1, cu Pilat David ca Project Manager), specificațiile de proiectare din repository (arhitectură, schema bazei de date, cazuri de utilizare, wireframe-uri), board-ul Trello și repository-ul GitHub, la care v-am trimis invitație. User stories urmează până la ședința 4 (19.11).
+> Bună ziua, vă trimit pachetul L1 al proiectului KubiDoIt: charter-ul (versiunea 1.1), specificațiile de proiectare din repository (arhitectură, schema bazei de date, cazuri de utilizare, wireframe-uri), board-ul Trello și repository-ul GitHub, la care v-am trimis invitație. User stories urmează până la ședința 4 (19.11).

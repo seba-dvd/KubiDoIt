@@ -25,8 +25,6 @@ Termenele vin din charter (ședințele cursului) și sunt [milestone-uri pe GitH
 | Kubanda Andrei    | Dezvoltator mobil                     | `mobile/`                                                                                                   | Andrei    |
 | Pilat David       | Project Manager + dezvoltator backend | planificare, Trello, livrabile, legătura cu coordonatorul; `supabase/`, `shared/`, securitate, sincronizare | David     |
 
-Din 05.11.2026, Project Manager este David (charter v1.1). Andreas a trecut pe QA și cerințe: cazuri de utilizare, user stories, testare.
-
 ## Milestone-uri
 
 | Milestone | Conținut                                               | Cerințe | Termen                            |

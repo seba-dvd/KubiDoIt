@@ -4,7 +4,7 @@ Ce ai de făcut în KubiDoIt, în ordine și cu termene. Pe GitHub, toate sarcin
 
 ## Rolul tău
 
-Din 05.11.2026 ești **Project Manager** (charter v1.1) și rămâi **dezvoltatorul backend**. Andreas a trecut pe QA și cerințe.
+Ești **Project Manager** și **dezvoltatorul backend** al echipei. Andreas se ocupă de QA și de cerințe.
 
 Ca **PM** răspunzi de:
 

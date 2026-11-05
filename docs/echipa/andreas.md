@@ -4,7 +4,7 @@ Ce ai de făcut în KubiDoIt, în ordine și cu termene. Pe GitHub, toate sarcin
 
 ## Rolul tău
 
-Ești **QA Lead și analist de cerințe**. Din 05.11.2026, rolul de Project Manager l-a preluat David (charter v1.1). Tu răspunzi de două lucruri care se leagă între ele:
+Ești **QA Lead și analist de cerințe**. Răspunzi de două lucruri care se leagă între ele:
 
 - **cerințele:** descrii ce trebuie să facă aplicația, din perspectiva utilizatorului. Cazurile de utilizare sunt deja în [cazuri-de-utilizare.md](../cazuri-de-utilizare.md); urmează user stories cu criterii de acceptare ([#70]);
 - **calitatea:** verifici că aplicația face ce scrie în cerințe: planul și cazurile de test, testarea manuală pe web, Android și iOS, rapoartele de test și regresia finală.
@@ -54,7 +54,7 @@ git merge origin/main              # înainte de fiecare sarcină nouă
 2. Livrabilul **L1** (termen 22.10, a trecut). Cazurile de utilizare ([#9]) sunt în `main`. Mai rămâne:
    - [#7] M1.4 – revizuirea documentației, împreună cu David.
 
-   Board-ul Trello ([#8]) și pachetul L1 ([#16]) au trecut la David, ca PM.
+   Board-ul Trello ([#8]) și pachetul L1 ([#16]) le face David, ca PM.
 
 3. [#12] **Pornire**: primul tău PR din ramură închide acest issue.
 4. Spre checkpoint-ul web din **05.11**, în ordinea asta:
