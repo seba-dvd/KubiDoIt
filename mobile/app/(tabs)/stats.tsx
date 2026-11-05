@@ -57,6 +57,6 @@ export default function StatsScreen() {
 const styles = StyleSheet.create({
   container: { padding: 16, gap: 16 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
-  stat: { width: "45%" as const, flexGrow: 1, borderTopWidth: 5 },
+  stat: { width: '45%' as const, flexGrow: 1, borderTopWidth: 5 },
   rate: { gap: 12 },
 });
