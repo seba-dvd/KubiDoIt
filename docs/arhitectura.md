@@ -1,6 +1,6 @@
 # Arhitectura KubiDoIt
 
-Document de specificații pentru livrabilul L1. Responsabil: Pilat David (backend), revizuit de Nicolescu Andreas.
+Document de specificații pentru livrabilul L1. Responsabil: Pilat David.
 
 ## Privire de ansamblu
 
@@ -10,7 +10,7 @@ KubiDoIt are două aplicații client, web și mobil, care folosesc același back
 flowchart LR
   subgraph Clienți
     WEB["@kubidoit/web<br/>React 19 + Vite<br/>React Router 7"]
-    MOB["@kubidoit/mobile<br/>Expo SDK 57 + Expo Router<br/>React Native Paper"]
+    MOB["@kubidoit/mobile<br/>Expo SDK 58 + Expo Router<br/>React Native Paper"]
   end
   SHARED["@kubidoit/shared<br/>tipuri, computeStatus(),<br/>etichete, culori, mock"]
   subgraph Supabase["Supabase (Frankfurt, plan Free)"]
@@ -37,14 +37,14 @@ Monorepo cu npm workspaces; `npm install` din rădăcină instalează tot.
 | ------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `@kubidoit/shared` | `shared/`   | TypeScript pur, fără React și fără API-uri DOM / React Native. Fără pas de build: aplicațiile importă direct sursa (`src/index.ts`). Testele Vitest stau lângă cod (`*.test.ts`). |
 | `@kubidoit/web`    | `web/`      | Vite, React 19, React Router 7. Pagini: Login, Tasks, Stats. Clientul Supabase: `src/lib/supabase.ts`.                                                                            |
-| `@kubidoit/mobile` | `mobile/`   | Expo SDK 57, Expo Router (ecranele în `app/`), React Native Paper. Tab-uri: Activități, Statistici, Profil. Clientul Supabase: `lib/supabase.ts`.                                 |
+| `@kubidoit/mobile` | `mobile/`   | Expo SDK 58, Expo Router (ecranele în `app/`), React Native Paper. Tab-uri: Activități, Statistici, Profil. Clientul Supabase: `lib/supabase.ts`.                                 |
 | –                  | `supabase/` | `config.toml` și migrațiile SQL, aplicate în ordinea numelor.                                                                                                                     |
 
 Reguli:
 
 - Logica folosită de ambele aplicații se scrie **o singură dată**, în `shared/`.
 - `shared/` nu importă React: hook-urile și componentele rămân în fiecare aplicație.
-- Web și mobil folosesc **aceeași versiune de React** (19.2.3, cea fixată de Expo SDK 57). Dacă o aplicație ar avea altă versiune, npm ar instala două copii de React.
+- Web și mobil trebuie să folosească **aceeași versiune de React**, cea cerută de Expo SDK 58 (19.3.0). Dacă o aplicație ar avea altă versiune, npm ar instala două copii de React.
 
 ## Logica statusurilor (R3)
 

@@ -60,6 +60,7 @@ git merge origin/main   # înainte de fiecare sarcină nouă
 |                   | [#20] | M2.4 Tipurile generate + `shared/src/api/`                      | [#6]                           |
 |                   | [#21] | M2.5 Test RLS cu două conturi                                   | [#6]                           |
 | **19.11** · L2    | [#29] | M3.7 API pentru categorii + filtrare și grupare                 | [#20]                          |
+|                   | [#70] | M1.11 User stories R1–R8 (cerință de la coordonator)            | [#9] (Andreas)                 |
 |                   | [#38] | M4.6 Security / Performance Advisor, RLS pentru categorii       | [#29]                          |
 |                   | [#45] | M6.1 Publicarea pe Vercel (ajuți pe Tudor)                      | [#24] (Tudor)                  |
 | **03.12** · mobil | [#28] | M3.6 Sincronizare Realtime (`subscribeToTasks()`)               | [#25], [#27]                   |
@@ -128,3 +129,4 @@ Valabilă pentru orice sarcină: vezi [plan-proiect.md → Definition of Done](.
 [#47]: https://github.com/seba-dvd/KubiDoIt/issues/47
 [#51]: https://github.com/seba-dvd/KubiDoIt/issues/51
 [#52]: https://github.com/seba-dvd/KubiDoIt/issues/52
+[#70]: https://github.com/seba-dvd/KubiDoIt/issues/70

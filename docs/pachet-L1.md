@@ -4,21 +4,22 @@ Responsabil: Pilat David (Project Manager). Prima variantă a acestei liste a sc
 
 ## Lista de verificare
 
-| #   | Element                      | Fișier / link                                       | Issue | Responsabil | Stare                                             |
-| --- | ---------------------------- | --------------------------------------------------- | ----- | ----------- | ------------------------------------------------- |
-| 1   | Project Charter (PDF semnat) | `docs/project-charter/Project_Charter_KubiDoIt.pdf` | #16   | David       | de re-exportat din transcrierea v1.1 și de semnat |
-| 2   | Arhitectura                  | [arhitectura.md](arhitectura.md)                    | #7    | David       | scris; de aprobat în PR                           |
-| 3   | Schema bazei de date         | [schema-bd.md](schema-bd.md)                        | #7    | David       | scris; testul RLS a trecut la 03.11               |
-| 4   | Cazuri de utilizare          | [cazuri-de-utilizare.md](cazuri-de-utilizare.md)    | #9    | Andreas     | în `main` (PR #69)                                |
-| 5   | Wireframe-uri web            | `docs/wireframes/web/`                              | #10   | Tudor       | în `main`                                         |
-| 6   | Wireframe-uri mobil          | `docs/wireframes/mobile/`                           | #11   | Andrei      | în `main`                                         |
-| 7   | Board Trello                 | link: _de completat_                                | #8    | David       | de creat / partajat                               |
-| 8   | Repository GitHub            | https://github.com/seba-dvd/KubiDoIt (privat)       | #16   | David       | există; coordonatorul are nevoie de acces         |
-| 9   | Plan de proiect              | [plan-proiect.md](plan-proiect.md)                  | –     | David       | scris                                             |
-| 10  | Proiect Supabase creat       | schema-bd.md, „Rezultate”                           | #6    | David       | făcut (testat la 03.11.2026)                      |
-| 11  | User stories                 | `docs/user-stories.md`                              | #70   | Andreas     | de scris (termen L2, 19.11)                       |
+| #   | Element                      | Fișier / link                                       | Issue | Responsabil | Stare                                               |
+| --- | ---------------------------- | --------------------------------------------------- | ----- | ----------- | --------------------------------------------------- |
+| 1   | Project Charter (PDF semnat) | `docs/project-charter/Project_Charter_KubiDoIt.pdf` | #16   | David       | de re-exportat din transcrierea v1.1 și de semnat   |
+| 2   | Arhitectura                  | [arhitectura.md](arhitectura.md)                    | #7    | David       | scris; de aprobat în PR                             |
+| 3   | Schema bazei de date         | [schema-bd.md](schema-bd.md)                        | #7    | David       | scris; testul RLS a trecut la 03.11                 |
+| 4   | Cazuri de utilizare          | [cazuri-de-utilizare.md](cazuri-de-utilizare.md)    | #9    | Andreas     | în `main` (PR #69)                                  |
+| 5   | Wireframe-uri web            | `docs/wireframes/web/`                              | #10   | Tudor       | în `main`                                           |
+| 6   | Wireframe-uri mobil          | `docs/wireframes/mobile/`                           | #11   | Andrei      | în `main`                                           |
+| 7   | Board Trello                 | link: _de completat_                                | #8    | David       | de creat / partajat                                 |
+| 8   | Repository GitHub            | https://github.com/seba-dvd/KubiDoIt (privat)       | #16   | David       | există; coordonatorul are nevoie de acces           |
+| 9   | Plan de proiect              | [plan-proiect.md](plan-proiect.md)                  | –     | David       | scris                                               |
+| 10  | Proiect Supabase creat       | schema-bd.md, „Rezultate”                           | #6    | David       | făcut (testat la 03.11.2026)                        |
+| 11  | User stories                 | [user-stories.md](user-stories.md)                  | #70   | David       | scris; revizuire Andreas                            |
+| 12  | Specificații tehnice (PDF)   | `docs/livrabile/KubiDoIt_Specificatii_Tehnice.pdf`  | –     | David       | generat din rândurile 2–6 și 11 + planul de testare |
 
-Pachetul se poate preda când rândurile 1–8 sunt complete. User stories (rândul 11) au fost cerute ulterior de coordonator și se trimit când sunt gata.
+Pachetul se poate preda când rândurile 1–8 sunt complete. User stories (rândul 11) și documentul de specificații (rândul 12) au fost cerute ulterior de coordonator. Documentul adună arhitectura, schema bazei de date, wireframe-urile, cazurile de utilizare, user stories și planul de testare într-un singur PDF; charter-ul se trimite separat.
 
 ## Pași pentru #16
 
@@ -52,4 +53,4 @@ Găsite de Andreas la citirea documentelor; de rezolvat împreună în #7.
 
 **Către coordonator (la predare):**
 
-> Bună ziua, vă trimit pachetul L1 al proiectului KubiDoIt: charter-ul (versiunea 1.1), specificațiile de proiectare din repository (arhitectură, schema bazei de date, cazuri de utilizare, wireframe-uri), board-ul Trello și repository-ul GitHub, la care v-am trimis invitație. User stories urmează până la ședința 4 (19.11).
+> Bună ziua, vă trimit pachetul L1 al proiectului KubiDoIt: documentul de specificații tehnice (arhitectură, schema bazei de date, wireframe-uri, cazuri de utilizare, user stories, plan de testare), project charter-ul (versiunea 1.1), board-ul Trello și repository-ul GitHub, la care v-am trimis invitație.

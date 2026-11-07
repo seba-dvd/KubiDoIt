@@ -1,6 +1,6 @@
 # Project Charter – KubiDoIt
 
-> Transcriere Markdown a documentului [Project_Charter_KubiDoIt.pdf](Project_Charter_KubiDoIt.pdf). PDF-ul din repository e încă la versiunea 1.0 și se re-exportă din această transcriere (versiunea 1.1, vezi [Istoricul versiunilor](#istoricul-versiunilor)) înainte de semnare. După semnare, PDF-ul semnat este referința.
+> Transcriere Markdown a documentului [Project_Charter_KubiDoIt.pdf](Project_Charter_KubiDoIt.pdf). PDF-ul e generat din această transcriere (versiunea 1.1, vezi [Istoricul versiunilor](#istoricul-versiunilor)). După semnare, PDF-ul semnat este referința.
 
 |                           |                                                                                                      |
 | ------------------------- | ---------------------------------------------------------------------------------------------------- |
