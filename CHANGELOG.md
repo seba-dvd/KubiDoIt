@@ -16,6 +16,28 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Fiecare versiune are un tag Git `vX.Y.Z` și o pagină de [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases).
 - Pașii pentru o versiune nouă sunt în secțiunea [Cum se publică o versiune](#cum-se-publică-o-versiune).
 
+## [1.5.0] – 2026-11-05
+
+### Adăugat
+
+- `shared/`: `getCompletedTodayCount()`, `getCompletedThisWeekCount()` și `getReminderTime()` pentru statistici (R7) și remindere (R6), cu teste.
+- `supabase/tests/rls_tasks.sql`: testul RLS cu doi utilizatori, care se verifică singur și face `rollback` la final.
+
+### Corectat
+
+- Mobil: pachetele duplicate rămase după upgrade-ul de la SDK 57 și erorile de typecheck și ESLint din ecranele Statistici și din selectorul de dată.
+
+### Documentație
+
+- Rolurile din echipă corectate după cum s-a lucrat de fapt (charter v1.1): Pilat David apare ca Project Manager, rol pe care l-a avut de la începutul proiectului, și rămâne dezvoltator backend; Nicolescu Andreas apare ca QA Lead și analist de cerințe. Actualizate charter-ul, planul, ghidurile din `docs/echipa/`, lista pachetului L1, README-ul și `CLAUDE.md`. Sarcină nouă: M1.11, user stories (#70).
+- Cazurile de utilizare R1–R8 cu diagrama (`docs/cazuri-de-utilizare.md`), planul de testare (`docs/testare/plan-de-testare.md`) și lista pachetului L1 (`docs/pachet-L1.md`).
+- Wireframe-urile aplicației mobile în `docs/wireframes/mobile/`.
+- `schema-bd.md` descrie testul RLS și rezultatele lui; comenzile Supabase CLI folosesc `--remote`.
+
+### Altele
+
+- Mobil: upgrade la Expo SDK 58 (React Native 0.88, React 19.3.0).
+
 ## [1.4.0] – 2026-11-03
 
 ### Adăugat
@@ -121,6 +143,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
    gh release create vX.Y.Z --verify-tag --title "vX.Y.Z" --notes "<secțiunea din CHANGELOG>"
    ```
 
+[1.5.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.2...v1.3.3

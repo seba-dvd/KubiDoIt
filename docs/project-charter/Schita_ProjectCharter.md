@@ -1,15 +1,15 @@
 # Project Charter – KubiDoIt
 
-> Transcriere Markdown a documentului [Project_Charter_KubiDoIt.pdf](Project_Charter_KubiDoIt.pdf) (versiunea 1.0). Dacă cele două diferă, PDF-ul semnat este referința.
+> Transcriere Markdown a documentului [Project_Charter_KubiDoIt.pdf](Project_Charter_KubiDoIt.pdf). PDF-ul din repository e încă la versiunea 1.0 și se re-exportă din această transcriere (versiunea 1.1, vezi [Istoricul versiunilor](#istoricul-versiunilor)) înainte de semnare. După semnare, PDF-ul semnat este referința.
 
 |                           |                                                                                                      |
 | ------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **Proiect**               | KubiDoIt – aplicație web și mobilă de tip listă de activități                                        |
 | **Instituție**            | Universitatea Transilvania din Brașov – Facultatea de Inginerie Electrică și Știința Calculatoarelor |
 | **Coordonator / Sponsor** | Corneliu Zaharia                                                                                     |
-| **Project Manager**       | Nicolescu Andreas                                                                                    |
+| **Project Manager**       | Pilat David                                                                                          |
 | **Data**                  | 08.10.2026                                                                                           |
-| **Versiune**              | 1.0                                                                                                  |
+| **Versiune**              | 1.1 (05.11.2026)                                                                                     |
 
 ## 1. Scopul proiectului (Project purpose)
 
@@ -138,15 +138,15 @@ Costurile neaprobate (în afara proiectului): cont Apple Developer, cont Google 
 
 ## 8. Părțile interesate cheie (Key stakeholder list)
 
-| Parte interesată              | Rol                      | Interes / Implicare                               |
-| ----------------------------- | ------------------------ | ------------------------------------------------- |
-| Corneliu Zaharia              | Coordonator / Sponsor    | Aprobă charter-ul, evaluează și acceptă proiectul |
-| Nicolescu Andreas             | Project Manager          | Planificare, coordonare, raportare                |
-| Mituleci Tudor                | Dezvoltator Frontend Web | Aplicația React                                   |
-| Kubanda Andrei                | Dezvoltator Mobil        | Aplicația React Native                            |
-| Pilat David                   | Dezvoltator Backend      | Supabase, securitate, sincronizare                |
-| Utilizatori individuali       | Utilizatori finali       | Organizarea timpului personal                     |
-| Grupuri de prieteni / familii | Utilizatori finali       | Gestionarea sarcinilor comune                     |
+| Parte interesată              | Rol                                    | Interes / Implicare                                                    |
+| ----------------------------- | -------------------------------------- | ---------------------------------------------------------------------- |
+| Corneliu Zaharia              | Coordonator / Sponsor                  | Aprobă charter-ul, evaluează și acceptă proiectul                      |
+| Nicolescu Andreas             | QA Lead și analist de cerințe          | Cerințe (cazuri de utilizare, user stories), testare, calitate         |
+| Mituleci Tudor                | Dezvoltator Frontend Web               | Aplicația React                                                        |
+| Kubanda Andrei                | Dezvoltator Mobil                      | Aplicația React Native                                                 |
+| Pilat David                   | Project Manager și Dezvoltator Backend | Planificare, coordonare, raportare; Supabase, securitate, sincronizare |
+| Utilizatori individuali       | Utilizatori finali                     | Organizarea timpului personal                                          |
+| Grupuri de prieteni / familii | Utilizatori finali                     | Gestionarea sarcinilor comune                                          |
 
 ## 9. Cerințe de aprobare (Project approval requirements)
 
@@ -171,7 +171,7 @@ Costurile neaprobate (în afara proiectului): cont Apple Developer, cont Google 
 
 ## 11. Project Manager – responsabilitate și nivel de autoritate
 
-**Project Manager:** Nicolescu Andreas
+**Project Manager:** Pilat David
 
 **Responsabilități:**
 
@@ -180,7 +180,7 @@ Costurile neaprobate (în afara proiectului): cont Apple Developer, cont Google 
 - Organizarea întâlnirilor de echipă;
 - Comunicarea cu coordonatorul și raportarea progresului;
 - Coordonarea documentației și a prezentării finale;
-- Contribuție tehnică (testare și dezvoltare).
+- Contribuție tehnică (dezvoltarea backend-ului: Supabase, securitate, sincronizare).
 
 **Nivel de autoritate:**
 
@@ -199,7 +199,14 @@ Costurile neaprobate (în afara proiectului): cont Apple Developer, cont Google 
 
 ## Semnături
 
-| Rol                   | Nume              | Semnătură | Data |
-| --------------------- | ----------------- | --------- | ---- |
-| Sponsor / Coordonator | Corneliu Zaharia  |           |      |
-| Project Manager       | Nicolescu Andreas |           |      |
+| Rol                   | Nume             | Semnătură | Data |
+| --------------------- | ---------------- | --------- | ---- |
+| Sponsor / Coordonator | Corneliu Zaharia |           |      |
+| Project Manager       | Pilat David      |           |      |
+
+## Istoricul versiunilor
+
+| Versiune | Data       | Modificare                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0      | 08.10.2026 | Prima versiune.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 1.1      | 05.11.2026 | Rolurile corectate după cum s-a lucrat de fapt, cu acordul echipei și al coordonatorului: Project Manager este Pilat David, care a condus planificarea de la începutul proiectului (planul și împărțirea sarcinilor, issue-urile și milestone-urile de pe GitHub, ghidurile echipei). Versiunea 1.0 îl trecea ca Project Manager pe Nicolescu Andreas, care apare acum ca QA Lead și analist de cerințe. Modificate: antetul, secțiunile 8 și 11 și tabelul de semnături. |
