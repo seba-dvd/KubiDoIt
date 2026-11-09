@@ -6,7 +6,7 @@ Ce ai de făcut în KubiDoIt, în ordine și cu termene. Pe GitHub, toate sarcin
 
 Ești **QA Lead și analist de cerințe**. Răspunzi de două lucruri care se leagă între ele:
 
-- **cerințele:** descrii ce trebuie să facă aplicația, din perspectiva utilizatorului. Cazurile de utilizare sunt deja în [cazuri-de-utilizare.md](../cazuri-de-utilizare.md); urmează user stories cu criterii de acceptare ([#70]);
+- **cerințele:** descrii ce trebuie să facă aplicația, din perspectiva utilizatorului. Cazurile de utilizare sunt deja în [cazuri-de-utilizare.md](../cazuri-de-utilizare.md); user stories cu criterii de acceptare sunt în [user-stories.md](../user-stories.md) ([#70]); tu le revizuiești și faci din criteriile lor cazuri de test;
 - **calitatea:** verifici că aplicația face ce scrie în cerințe: planul și cazurile de test, testarea manuală pe web, Android și iOS, rapoartele de test și regresia finală.
 
 Criteriile de acceptare din user stories devin cazuri de test, deci tu legi ce s-a cerut de ce s-a livrat. Pe lângă asta scrii **cod**: testele automate ale aplicației (Vitest și Playwright) și confirmarea la ștergere, pe web și pe mobil. Așa ai și tu contribuție tehnică în repository.
@@ -62,7 +62,7 @@ git merge origin/main              # înainte de fiecare sarcină nouă
    - [#57] M2.9 – confirmarea la ștergere (cod în `shared/`, `web/` și `mobile/`); e cea mai concretă, pornește cu ea;
    - [#55] M2.7 – cazurile din M2.6 ca teste Vitest;
    - [#56] M2.8 – testele end-to-end pe web cu Playwright și job-ul lor în CI.
-5. Spre **L2 (19.11)**: [#70] M1.11 – user stories R1–R8 cu criterii de acceptare, pornind de la cazurile de utilizare (cerință de la coordonator).
+5. [#70] M1.11 – revizuiește user stories scrise de David (în PR-ul care închide #70) și adaugă în planul de testare cazurile pentru criteriile de acceptare R4–R8.
 
 ## Calendarul tău
 
@@ -75,7 +75,7 @@ git merge origin/main              # înainte de fiecare sarcină nouă
 |                   | [#57] | M2.9 Confirmare la ștergere, web + mobil (**cod**)              | –                                 |
 |                   | [#55] | M2.7 Teste Vitest pentru cazurile R1–R3 (**cod**)               | [#22]                             |
 |                   | [#56] | M2.8 Teste e2e web cu Playwright + CI (**cod**)                 | –                                 |
-| **19.11** · L2    | [#70] | M1.11 User stories R1–R8 + criterii de acceptare                | [#9]                              |
+| **19.11** · L2    | [#70] | M1.11 Revizuirea user stories + cazuri de test din criterii     | PR-ul lui David                   |
 |                   | [#50] | M6.4 README final (partea web; la L3 se adaugă mobilul)         | [#45] (Tudor)                     |
 |                   | [#58] | M3.11 Teste e2e: login, categorii, sincronizare O4 (**cod**)    | [#56], [#24], [#25], [#28], [#30] |
 |                   | [#59] | M4.8 Teste pentru statistici și remindere (**cod**)             | [#33], [#34], [#36]               |

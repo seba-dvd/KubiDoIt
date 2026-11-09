@@ -16,6 +16,16 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Fiecare versiune are un tag Git `vX.Y.Z` și o pagină de [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases).
 - Pașii pentru o versiune nouă sunt în secțiunea [Cum se publică o versiune](#cum-se-publică-o-versiune).
 
+## [1.5.1] – 2026-11-07
+
+### Documentație
+
+- User stories R1–R8 (`docs/user-stories.md`): 25 de user stories cu criterii de acceptare, fiecare legat de cazul de utilizare și de cazurile de test existente (#70).
+- Documentul de specificații tehnice în PDF (`docs/livrabile/KubiDoIt_Specificatii_Tehnice.pdf`): arhitectura, schema bazei de date, wireframe-urile web și mobile, cazurile de utilizare, user stories și planul de testare.
+- PDF-ul charter-ului regenerat din versiunea 1.1 (`docs/project-charter/Project_Charter_KubiDoIt.pdf`).
+- `arhitectura.md`: Expo SDK 58 în locul lui 57 și regula versiunii comune de React.
+- Planul, ghidurile din `docs/echipa/` și lista pachetului L1 actualizate pentru user stories și documentul de specificații.
+
 ## [1.5.0] – 2026-11-05
 
 ### Adăugat
@@ -143,6 +153,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
    gh release create vX.Y.Z --verify-tag --title "vX.Y.Z" --notes "<secțiunea din CHANGELOG>"
    ```
 
+[1.5.1]: https://github.com/seba-dvd/KubiDoIt/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.3...v1.3.4
