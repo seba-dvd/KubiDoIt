@@ -37,8 +37,8 @@ git merge origin/main   # înainte de fiecare sarcină nouă
 
 1. Lucrezi pe ramura ta. Commit-urile sunt în engleză, după [Conventional Commits](https://www.conventionalcommits.org/): `feat(shared): add tasks api`, `feat(supabase): add groups migration`, `test(supabase): add RLS test`, `docs: update project plan`.
 2. Înainte de PR rulezi `npm run lint && npm run format:check && npm run typecheck && npm test`.
-3. PR din `feature/david-backend` în `main`, cu `Closes #<issue>` în descriere, review de la un coleg, CI `verify` verde, _Create a merge commit_. Nu șterge ramura după merge.
-4. Ești admin pe repository, deci regula de protecție nu te oprește tehnic. Nu o ocoli: fiecare PR al tău are nevoie de aprobarea unui coleg, ca la toți ceilalți.
+3. PR din `feature/david-backend` în `main`, cu `Closes #<issue>` în descriere, CI `verify` verde, _Create a merge commit_. Nu șterge ramura după merge.
+4. Review-ul e la cerere: colegii își îmbină singuri PR-urile după CI verde și te adaugă ca revizor doar când vor o a doua părere. Ești admin pe repository, dar nu ocoli regula de protecție: și PR-urile tale intră în `main` doar cu CI `verify` verde.
 
 ## Ce faci acum
 
@@ -80,7 +80,7 @@ git merge origin/main   # înainte de fiecare sarcină nouă
 
 - **Decizia pentru R8** (activități de grup, [#40]–[#44]): ia-o cu echipa cel târziu după L2 (19.11), în funcție de timpul rămas. Dacă R8 iese din scope, închide issue-urile cu eticheta `opțional` și notează decizia în `docs/plan-proiect.md`.
 - **Săptămânal:** treci prin [milestone-uri](https://github.com/seba-dvd/KubiDoIt/milestones), vezi ce e întârziat și cine e blocat (coloanele „Așteaptă după” din ghidurile colegilor).
-- **PR-urile** să primească review în 1–2 zile. Un PR blocat întârzie toată echipa.
+- **Cererile de review** primite le rezolvi în 1–2 zile. Un PR blocat întârzie toată echipa.
 - **Starea testelor:** înainte de fiecare predare (L2, L3), Andreas îți spune ce trece, ce pică și ce erori critice sunt deschise. Pe baza asta decizi ce se predă.
 - **Erorile** găsite la testare devin issue-uri noi, cu template-ul _Raport de eroare_, atribuite celui care răspunde de zonă.
 - **Trello și GitHub** rămân sincronizate: fiecare card are link-ul issue-ului, iar cardul trece în _Done_ când issue-ul se închide.

@@ -23,5 +23,5 @@ Cum se lucrează pe ramura proprie:
 
 1. `git fetch origin`, `git switch <ramura ta>`, `git merge origin/main`.
 2. Pentru fiecare sarcină terminată, un PR în `main`, cu `Closes #<issue>` în descriere.
-3. CI `verify` verde (un review de la un coleg e recomandat, nu obligatoriu), _Create a merge commit_.
+3. CI `verify` verde, apoi îmbini singur PR-ul cu _Create a merge commit_. Review-ul e la cerere: dacă vrei o a doua părere, îl adaugi pe David (PM) ca revizor.
 4. Ramura nu se șterge după merge: lucrul continuă pe ea.

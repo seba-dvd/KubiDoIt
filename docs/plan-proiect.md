@@ -20,7 +20,7 @@ Termenele vin din charter (ședințele cursului) și sunt [milestone-uri pe GitH
 
 | Cine              | Rol                                   | Responsabil de                                                                                              | În tabele |
 | ----------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- |
-| Nicolescu Andreas | QA Lead + analist de cerințe          | cerințe (cazuri de utilizare, revizuirea user stories), testare automată și manuală, README                 | Andreas   |
+| Nicolescu Andreas | QA Lead + analist de cerințe          | cerințe (cazuri de utilizare), testare automată și manuală, README                                          | Andreas   |
 | Mituleci Tudor    | Dezvoltator web                       | `web/`                                                                                                      | Tudor     |
 | Kubanda Andrei    | Dezvoltator mobil                     | `mobile/`                                                                                                   | Andrei    |
 | Pilat David       | Project Manager + dezvoltator backend | planificare, Trello, livrabile, legătura cu coordonatorul; `supabase/`, `shared/`, securitate, sincronizare | David     |
@@ -42,19 +42,19 @@ Mărimea sarcinilor: **S** ≤ 3 ore, **M** 3–8 ore, **L** peste 8 ore.
 
 ## M1 – Setup și specificații (L1)
 
-| ID    | Sarcină                                                                                                                                                             | Responsabil               | Depinde de | Gata când                                                       | Mărime |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------- | --------------------------------------------------------------- | ------ |
-| M1.1  | Repository GitHub, structura monorepo, CI, template-uri PR / issue, prima variantă a documentației                                                                  | David                     | –          | ✅ făcut                                                        | L      |
-| M1.2  | Invitarea colegilor ca colaboratori pe GitHub (ramura `main` e protejată: merge doar prin PR, cu CI `verify` verde)                                                 | David                     | M1.1       | toți pot clona și deschide PR-uri                               | S      |
-| M1.3  | Proiect Supabase (Free, Frankfurt): rulare migrație, _Confirm email_ dezactivat pentru dezvoltare, URL + cheia anon trimise echipei pe un canal privat (nu în repo) | David                     | M1.1       | tabelele apar în dashboard; testul RLS din `schema-bd.md` trece | S      |
-| M1.4  | Revizuirea și completarea `docs/schema-bd.md` și `docs/arhitectura.md`                                                                                              | David (+ Andreas)         | M1.3       | documentele sunt aprobate în PR                                 | S      |
-| M1.5  | Board Trello: liste Backlog / To Do / In Progress / Review / Done; etichete R1–R8 și web / mobil / backend / docs; câte un card pentru fiecare sarcină de aici      | David                     | M1.1       | board-ul e partajat cu echipa și cu coordonatorul               | M      |
-| M1.6  | Cazuri de utilizare `docs/cazuri-de-utilizare.md`: câte un caz pentru R1–R8 + diagrama cazurilor de utilizare                                                       | Andreas                   | –          | documentul e în `main`                                          | M      |
-| M1.7  | Wireframe-uri web (Login, Activități, Statistici, categorii, grupuri) în `docs/wireframes/web/`                                                                     | Tudor                     | –          | imaginile sunt în `main`                                        | M      |
-| M1.8  | Wireframe-uri mobil (cele 3 tab-uri, adăugare activitate, login) în `docs/wireframes/mobile/`                                                                       | Andrei                    | –          | imaginile sunt în `main`                                        | M      |
-| M1.9  | Fiecare membru: clonează, `npm install`, rulează web și mobil (Expo Go), deschide un prim PR de exercițiu                                                           | toți                      | M1.2       | fiecare are cel puțin un PR acceptat                            | S      |
-| M1.10 | Semnarea charter-ului; pachetul L1 (charter, specificații, link-uri Trello și GitHub)                                                                               | David                     | M1.4–M1.8  | L1 predat                                                       | S      |
-| M1.11 | User stories R1–R8 în `docs/user-stories.md`, fiecare cu ID, criterii de acceptare și legătura cu cazurile de utilizare și de test (cerință de la coordonator)      | David (revizuire Andreas) | M1.6       | documentul e în `main`                                          | M      |
+| ID    | Sarcină                                                                                                                                                             | Responsabil       | Depinde de | Gata când                                                       | Mărime |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------- | --------------------------------------------------------------- | ------ |
+| M1.1  | Repository GitHub, structura monorepo, CI, template-uri PR / issue, prima variantă a documentației                                                                  | David             | –          | ✅ făcut                                                        | L      |
+| M1.2  | Invitarea colegilor ca colaboratori pe GitHub (ramura `main` e protejată: merge doar prin PR, cu CI `verify` verde)                                                 | David             | M1.1       | toți pot clona și deschide PR-uri                               | S      |
+| M1.3  | Proiect Supabase (Free, Frankfurt): rulare migrație, _Confirm email_ dezactivat pentru dezvoltare, URL + cheia anon trimise echipei pe un canal privat (nu în repo) | David             | M1.1       | tabelele apar în dashboard; testul RLS din `schema-bd.md` trece | S      |
+| M1.4  | Revizuirea și completarea `docs/schema-bd.md` și `docs/arhitectura.md`                                                                                              | David (+ Andreas) | M1.3       | documentele sunt aprobate în PR                                 | S      |
+| M1.5  | Board Trello: liste Backlog / To Do / In Progress / Review / Done; etichete R1–R8 și web / mobil / backend / docs; câte un card pentru fiecare sarcină de aici      | David             | M1.1       | board-ul e partajat cu echipa și cu coordonatorul               | M      |
+| M1.6  | Cazuri de utilizare `docs/user-cases.md`: câte un caz pentru R1–R8 + diagrama cazurilor de utilizare                                                                | Andreas           | –          | documentul e în `main`                                          | M      |
+| M1.7  | Wireframe-uri web (Login, Activități, Statistici, categorii, grupuri) în `docs/wireframes/web/`                                                                     | Tudor             | –          | imaginile sunt în `main`                                        | M      |
+| M1.8  | Wireframe-uri mobil (cele 3 tab-uri, adăugare activitate, login) în `docs/wireframes/mobile/`                                                                       | Andrei            | –          | imaginile sunt în `main`                                        | M      |
+| M1.9  | Fiecare membru: clonează, `npm install`, rulează web și mobil (Expo Go), deschide un prim PR de exercițiu                                                           | toți              | M1.2       | fiecare are cel puțin un PR acceptat                            | S      |
+| M1.10 | Semnarea charter-ului; pachetul L1 (charter, specificații, link-uri Trello și GitHub)                                                                               | David             | M1.4–M1.8  | L1 predat                                                       | S      |
+| M1.11 | User stories R1–R8 în `docs/user-stories.md`, fiecare cu ID, criterii de acceptare și legătura cu cazurile de utilizare și de test (cerință de la coordonator)      | David             | M1.6       | documentul e în `main`                                          | M      |
 
 ## M2 – MVP (R1–R3)
 
@@ -125,11 +125,11 @@ David (PM) decide împreună cu echipa dacă R8 intră în scope, în funcție d
 
 ## Sarcinile fiecăruia
 
-- **Andreas (QA Lead + analist de cerințe):** M1.6, M2.6, M3.10, M4.7, M5.5, M6.3, M6.4 (README) – plus revizuirea M1.4 și M1.11. Cod: M2.7, M2.8, M2.9, M3.11, M4.8, M6.7 (teste automate și confirmarea la ștergere), pe ramura `feature/andreas-tests`.
+- **Andreas (QA Lead + analist de cerințe):** M1.6, M2.6, M3.10, M4.7, M5.5, M6.3, M6.4 (README) – plus revizuirea M1.4. Cod: M2.7, M2.8, M2.9, M3.11, M4.8, M6.7 (teste automate și confirmarea la ștergere), pe ramura `feature/andreas-tests`.
 - **Tudor (web):** M1.7, M2.2, M3.2, M3.3, M3.8, M4.2, M4.4, M4.5, M5.3, M6.1, M6.4 (ghid web).
 - **Andrei (mobil):** M1.8, M2.3, M3.4, M3.5, M3.9, M4.1, M4.3, M5.4, M6.2, M6.4 (ghid mobil).
 - **David (PM + backend):** PM și documente: M1.5, M1.10, M1.11, M6.6, plus planul și ghidurile ținute la zi. Backend: M1.1, M1.2, M1.3, M1.4, M2.1, M2.4, M2.5, M3.1, M3.6, M3.7, M4.6, M5.1, M5.2, M6.5 – plus ajutor la M6.1.
-- **Toți:** M1.9 și revizuirea PR-urilor colegilor.
+- **Toți:** M1.9. Review-ul e la cerere: autorul îl adaugă pe David (PM) ca revizor când vrea o a doua părere.
 
 Se păstrează organizarea din charter (întâi web, apoi mobil): sarcinile mobile M2.3, M3.4, M3.5, M3.9 și M4.3 vin după livrarea aplicației web (vezi [Calendar](#calendar)), iar Andrei lucrează între timp la `shared/` (M4.1) și ajută la web.
 
@@ -139,7 +139,7 @@ Ghidul fiecăruia, cu sarcinile în ordine și link-urile spre issue-uri: [Andre
 
 1. Codul e pe o ramură `feature/…`, `fix/…`, `chore/…` sau `docs/…`, cu commit-uri [Conventional Commits](https://www.conventionalcommits.org/).
 2. `npm run lint`, `npm run typecheck` și `npm test` trec local, iar CI-ul e verde pe Pull Request.
-3. Un coleg a revizuit și aprobat PR-ul.
+3. Autorul a îmbinat PR-ul după CI verde; dacă a cerut review, David (PM) l-a aprobat înainte.
 4. Logica folosită de ambele aplicații e în `shared/`, cu teste.
 5. Documentația e actualizată (README, `docs/`), dacă a fost nevoie.
 6. Cardul din Trello e mutat în _Done_.

@@ -35,10 +35,10 @@ Pentru fiecare sarcină:
 1. Lucrezi pe ramura ta. Commit-urile sunt în engleză, după [Conventional Commits](https://www.conventionalcommits.org/): `feat(mobile): add login screen`, `feat(shared): add weekly stats`, `docs: add mobile wireframes`.
 2. Înainte de PR rulezi `npm run lint && npm run format:check && npm run typecheck && npm test`. Dacă `format:check` pică, `npm run format` repară formatarea.
 3. `git push`, apoi deschizi un PR din `feature/andrei-mobile` în `main`. Completezi template-ul și scrii `Closes #<issue>` în descriere. Pentru ecrane, pune capturi de pe telefon.
-4. Ceri review unui coleg. CI-ul `verify` trebuie să fie verde.
+4. Aștepți să fie verde CI-ul `verify`. Review-ul e la cerere: dacă vrei o a doua părere, îl adaugi pe David (PM) ca revizor.
 5. Merge cu _Create a merge commit_. **Nu șterge ramura**: după merge continui pe ea, cu `git merge origin/main`.
 
-Un PR acoperă o singură sarcină, ca să fie revizuit repede. Pentru o sarcină mare poți face și o ramură separată din `main` (`feature/<descriere>`).
+Un PR acoperă o singură sarcină, ca să fie ușor de urmărit și, la nevoie, de revizuit. Pentru o sarcină mare poți face și o ramură separată din `main` (`feature/<descriere>`).
 
 ## Ce faci acum
 

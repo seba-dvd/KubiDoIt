@@ -1,6 +1,6 @@
 # User stories
 
-Document de specificații. Responsabil: Pilat David; revizuire: Nicolescu Andreas. User stories descriu cerințele R1–R8 din [Project Charter](project-charter/Schita_ProjectCharter.md) din perspectiva utilizatorului. Pornesc de la [cazurile de utilizare](cazuri-de-utilizare.md), de la wireframe-urile din `docs/wireframes/` și de la regulile de date din [schema-bd.md](schema-bd.md).
+Document de specificații. Responsabil: Pilat David. User stories descriu cerințele R1–R8 din [Project Charter](project-charter/Schita_ProjectCharter.md) din perspectiva utilizatorului. Pornesc de la [cazurile de utilizare](user-cases.md), de la wireframe-urile din `docs/wireframes/` și de la regulile de date din [schema-bd.md](schema-bd.md).
 
 ## Cum se citesc
 

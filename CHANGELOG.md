@@ -24,7 +24,9 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Documentul de specificații tehnice în PDF (`docs/livrabile/KubiDoIt_Specificatii_Tehnice.pdf`): arhitectura, schema bazei de date, wireframe-urile web și mobile, cazurile de utilizare, user stories și planul de testare.
 - PDF-ul charter-ului regenerat din versiunea 1.1 (`docs/project-charter/Project_Charter_KubiDoIt.pdf`).
 - `arhitectura.md`: Expo SDK 58 în locul lui 57 și regula versiunii comune de React.
+- Cazurile de utilizare se numesc acum `docs/user-cases.md` (înainte `docs/cazuri-de-utilizare.md`).
 - Planul, ghidurile din `docs/echipa/` și lista pachetului L1 actualizate pentru user stories și documentul de specificații.
+- Review-ul PR-urilor e la cerere: autorul își îmbină singur PR-ul după ce CI-ul `verify` e verde și îl adaugă pe David (PM) ca revizor doar când vrea o a doua părere. Ghidurile, planul, README-ul și `CLAUDE.md` spun la fel.
 
 ## [1.5.0] – 2026-11-05
 
