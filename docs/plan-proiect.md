@@ -86,6 +86,8 @@ Mărimea sarcinilor: **S** ≤ 3 ore, **M** 3–8 ore, **L** peste 8 ore.
 | M3.10 | Testare R4 / R5: izolarea datelor între conturi, timpul de sincronizare, regresie R1–R3                                                               | Andreas     | M3.3–M3.9                    | raport de test în `docs/testare/`                             | M      |
 | M3.11 | Teste e2e web cu Supabase: login / logout și rute protejate (R5), persistență, categorii (R4), sincronizare între două browsere măsurată automat (O4) | Andreas     | M2.8, M3.2, M3.3, M3.6, M3.8 | testele trec cu contul de test; timpul O4 e în raportul M3.10 | L      |
 
+Măsurarea O4 (M3.6, M3.11) se poate face abia după M3.5, când și aplicația mobilă citește din Supabase (03.12). La L2 (19.11), sincronizarea se verifică doar între două browsere.
+
 ## M4 – Remindere (R6), statistici (R7)
 
 | ID   | Sarcină                                                                                                                                                         | Responsabil | Depinde de       | Gata când                                 | Mărime |

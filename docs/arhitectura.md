@@ -68,7 +68,8 @@ flowchart TD
 2. **Cu Supabase (de la M3):**
    - utilizatorul se autentifică prin Supabase Auth (email + parolă), iar sesiunea se păstrează local (`localStorage` pe web, `expo-sqlite/localStorage` pe mobil);
    - citirile și scrierile merg prin REST API cu JWT-ul utilizatorului, iar RLS limitează fiecare cerere la datele lui;
-   - funcțiile de acces la date (listare, creare, ștergere, schimbare status) stau în `shared/src/api/` și primesc clientul Supabase ca parametru, ca să nu fie scrise de două ori;
+   - funcțiile de acces la date stau în `shared/src/api/` (activități: listare, creare, ștergere, schimbare status; categorii: listare, creare, ștergere) și primesc clientul Supabase ca parametru, ca să nu fie scrise de două ori;
+   - filtrarea și gruparea activităților pe categorii (R4) sunt funcții pure în `shared/src/categories.ts`, folosite la fel pe web și pe mobil;
    - pentru sincronizare (R5, O4 ≤ 5 s), fiecare aplicație se abonează la `postgres_changes` pe tabelul `tasks` și își reîmprospătează lista la fiecare eveniment.
 
 ## Securitate
@@ -95,5 +96,5 @@ Pe Vercel, variabilele web se setează în _Project Settings → Environment Var
 
 ## Publicare
 
-- **Web:** Vercel, cu _Root Directory_ `web/`. `web/vercel.json` trimite toate rutele la `index.html` (rutare în client).
+- **Web:** Vercel, la https://kubi-do-it.vercel.app, cu _Root Directory_ `web/`. Până la integrarea autentificării (#24, #25) rulează în mod demo, fără variabilele Supabase. `web/vercel.json` trimite toate rutele la `index.html` (rutare în client).
 - **Mobil:** Expo Go pentru testare; APK Android prin EAS Build (profil `preview`, `buildType: apk`). Publicarea în magazine nu face parte din proiect.
