@@ -78,13 +78,12 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0.75rem 1rem;
 }
 
 .brand {
-  margin-right: auto;
   color: var(--text);
   font-size: 1.15rem;
   font-weight: 700;
@@ -94,6 +93,7 @@ a {
 .nav {
   display: flex;
   gap: 0.25rem;
+  margin-left: auto;
 }
 
 .nav a {
@@ -114,6 +114,48 @@ a {
   background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
+/* Phones: the navigation collapses behind the menu button. */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-toggle[aria-expanded='true'] {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+  }
+
+  .nav--open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+  }
+}
+
 .pill {
   padding: 0.15rem 0.6rem;
   border: 1px solid var(--border);
@@ -123,7 +165,7 @@ a {
 }
 
 .page {
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
 }
@@ -213,6 +255,10 @@ a {
   font: inherit;
 }
 
+.input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
 .field-error {
   color: var(--danger);
   font-size: 0.85rem;
@@ -243,7 +289,8 @@ a {
 
 .task-form {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  /* minmax(0, …) lets the title field shrink, so the button never overflows on narrow screens */
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: start;
   gap: 0.75rem;
 }
@@ -254,7 +301,7 @@ a {
 
 @media (max-width: 640px) {
   .task-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .task-form__submit {
@@ -299,9 +346,10 @@ a {
   list-style: none;
 }
 
+/* Wide screens: title, status and buttons on one row. Narrow screens: the buttons wrap below. */
 .task {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem 1rem;
   border-left-width: 5px;
@@ -333,13 +381,41 @@ a {
 .task__actions {
   display: flex;
   flex-wrap: wrap;
-  grid-column: 1 / -1;
+  justify-content: flex-end;
   gap: 0.5rem;
+  margin-left: auto;
 }
 
-.empty {
-  margin: 1rem 0;
+/* Phones: the status stays in the top-right corner, the buttons get their own row. */
+@media (max-width: 640px) {
+  .task {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .task__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
   text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.empty-state__title {
+  font-weight: 600;
 }
 
 /* Stats */

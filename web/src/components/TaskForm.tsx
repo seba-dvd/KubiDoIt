@@ -5,12 +5,18 @@ import {
   validateNewTask,
   type NewTaskErrors,
 } from '@kubidoit/shared';
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent, type RefObject } from 'react';
 
 import { useTasks } from '../state/tasks-context';
 
-export function TaskForm() {
+interface TaskFormProps {
+  /** The title field, so the page can move the focus to it (e.g. from the empty state). */
+  titleInputRef: RefObject<HTMLInputElement | null>;
+}
+
+export function TaskForm({ titleInputRef }: TaskFormProps) {
   const { addTask } = useTasks();
+  const dueInputRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState('');
   const [due, setDue] = useState(() => toDateTimeLocalValue(tomorrowAtNoon()));
   const [errors, setErrors] = useState<NewTaskErrors>({});
@@ -20,6 +26,8 @@ export function TaskForm() {
     const result = validateNewTask({ title, due_at: due });
     if (!result.ok) {
       setErrors(result.errors);
+      // The first field with an error gets the focus, so its message is read right away.
+      (result.errors.title ? titleInputRef : dueInputRef).current?.focus();
       return;
     }
     addTask(result.value);
@@ -33,8 +41,10 @@ export function TaskForm() {
       <div className="field task-form__title">
         <label htmlFor="task-title">Activitate nouă</label>
         <input
+          ref={titleInputRef}
           id="task-title"
           className="input"
+          required
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           placeholder="Ce ai de făcut?"
@@ -51,9 +61,11 @@ export function TaskForm() {
       <div className="field">
         <label htmlFor="task-due">Termen</label>
         <input
+          ref={dueInputRef}
           id="task-due"
           className="input"
           type="datetime-local"
+          required
           value={due}
           onChange={(event) => setDue(event.target.value)}
           aria-invalid={Boolean(errors.due_at)}
