@@ -115,3 +115,21 @@ describe('tasksReducer', () => {
     expect(tasksReducer([task('a')], { type: 'replaced', tasks: [] })).toEqual([]);
   });
 });
+
+describe('tasksReducer – upserted', () => {
+  const base = tasksReducer([], { type: 'added', task: task('t1') });
+
+  it('adaugă activitatea dacă nu e în listă', () => {
+    const next = tasksReducer(base, { type: 'upserted', task: task('t2') });
+    expect(next.map((t) => t.id)).toEqual(['t1', 't2']);
+  });
+
+  it('înlocuiește activitatea cu același id, pe loc', () => {
+    const next = tasksReducer(base, {
+      type: 'upserted',
+      task: { ...task('t1'), title: 'Modificată' },
+    });
+    expect(next).toHaveLength(1);
+    expect(next[0]?.title).toBe('Modificată');
+  });
+});
