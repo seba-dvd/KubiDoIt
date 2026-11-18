@@ -2,6 +2,8 @@ import type { ManualStatus, Task } from './types';
 
 export type TasksAction =
   | { type: 'added'; task: Task }
+  /** Insert or replace by id, for rows coming from Supabase Realtime. */
+  | { type: 'upserted'; task: Task }
   | { type: 'removed'; id: string }
   /** `status: null` reactivates the task; `at` is the ISO time of the change. */
   | { type: 'statusChanged'; id: string; status: ManualStatus | null; at: string }
@@ -12,6 +14,10 @@ export function tasksReducer(tasks: Task[], action: TasksAction): Task[] {
   switch (action.type) {
     case 'added':
       return [...tasks, action.task];
+    case 'upserted':
+      return tasks.some((task) => task.id === action.task.id)
+        ? tasks.map((task) => (task.id === action.task.id ? action.task : task))
+        : [...tasks, action.task];
     case 'removed':
       return tasks.filter((task) => task.id !== action.id);
     case 'statusChanged':
