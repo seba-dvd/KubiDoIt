@@ -16,6 +16,14 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
 - Fiecare versiune are un tag Git `vX.Y.Z` și o pagină de [Release pe GitHub](https://github.com/seba-dvd/KubiDoIt/releases).
 - Pașii pentru o versiune nouă sunt în secțiunea [Cum se publică o versiune](#cum-se-publică-o-versiune).
 
+## [1.5.2] – 2026-11-09
+
+### Documentație
+
+- Review-ul PR-urilor e la cerere: autorul își îmbină singur PR-ul după ce CI-ul `verify` e verde și îl adaugă pe David (PM) ca revizor doar când vrea o a doua părere. Ghidurile, planul, README-ul și `CLAUDE.md` spun la fel.
+- Cazurile de utilizare se numesc acum `docs/user-cases.md` (înainte `docs/cazuri-de-utilizare.md`).
+- `user-stories.md`: antetul trece doar responsabilul; PDF-ul de specificații e regenerat.
+
 ## [1.5.1] – 2026-11-07
 
 ### Documentație
@@ -153,6 +161,7 @@ Versiunea are forma **MAJOR.MINOR.PATCH** și se alege după tipul commit-urilor
    gh release create vX.Y.Z --verify-tag --title "vX.Y.Z" --notes "<secțiunea din CHANGELOG>"
    ```
 
+[1.5.2]: https://github.com/seba-dvd/KubiDoIt/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/seba-dvd/KubiDoIt/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/seba-dvd/KubiDoIt/compare/v1.3.4...v1.4.0

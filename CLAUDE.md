@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) and the R1–R3 MVP runs on both apps on local mock data (demo mode). Supabase auth/sync and R4–R8 are not wired yet. `main` is protected: changes land through PRs with a green `verify` CI check (a teammate review is recommended, not required) and merge commits only (no squash/rebase, so version tags stay in history). The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
+KubiDoIt is a to-do app built for the SOPM course at Universitatea Transilvania din Brașov. The monorepo scaffold exists (`shared/`, `web/`, `mobile/`, `supabase/`, `docs/`, `.github/`) and the R1–R3 MVP runs on both apps on local mock data (demo mode). Supabase auth/sync and R4–R8 are not wired yet. `main` is protected: changes land through PRs with a green `verify` CI check (reviews are on request: authors merge their own PRs and add David, the PM, as reviewer only when they want one) and merge commits only (no squash/rebase, so version tags stay in history). The task division per milestone and person is in `docs/plan-proiect.md` (deadlines still "de stabilit"); the charter lives in `docs/project-charter/`.
 
 ### Version pins (keep them in sync)
 
@@ -55,6 +55,6 @@ Node **22.12+** is required (24 LTS recommended).
 - Never commit directly to `main`. Each member has a personal branch created from their GitHub issue (`docs/andreas-pm`, `feature/tudor-web`, `feature/andrei-mobile`, `feature/david-backend`): one PR per task from it with `Closes #<issue>`, and the branch is kept after merge. Larger work may use a separate `feature/<slug>`, `fix/<slug>`, `chore/<slug>` or `docs/<slug>` branch.
 - Every plan task is a GitHub issue, grouped into milestones by the charter dates (Ședința 2–6: 22.10, 05.11, 19.11, 03.12, 17.12.2026). Per-member guides live in `docs/echipa/`.
 - **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:` …). Commit subjects in English following the Conventional Commits examples in the README.
-- Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. PRs need at least one teammate review.
+- Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. Reviews are on request: authors merge their own PRs once `verify` is green; David (PM) reviews when asked.
 - **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).
 - Team ownership (useful when deciding who/what a change touches): web → Mituleci Tudor, mobile → Kubanda Andrei, project management and Supabase/backend/security → Pilat David, requirements/QA/testing/docs → Nicolescu Andreas.

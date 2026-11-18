@@ -139,7 +139,7 @@ Fișierele `.env` nu se urcă pe GitHub: sunt în `.gitignore`. Fiecare membru a
    - `chore: update dependencies`;
    - `docs: describe database schema`.
 3. Înainte de Pull Request: `npm run lint`, `npm run typecheck`, `npm test`.
-4. Pull Request în `main`, revizuit de cel puțin un coleg; fiecare sarcină are un card în Trello.
+4. Pull Request în `main`, îmbinat de autor după ce CI-ul `verify` e verde. Review-ul e la cerere, de la David (PM). Fiecare sarcină are un card în Trello.
 
 ## Versionare
 
