@@ -32,7 +32,11 @@ export default function AddTaskScreen() {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <ScrollView
+      contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps="handled"
+      contentInsetAdjustmentBehavior="automatic"
+    >
       <TextInput
         label="Titlu"
         mode="outlined"
