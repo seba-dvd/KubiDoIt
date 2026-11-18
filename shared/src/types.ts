@@ -21,3 +21,15 @@ export interface Task {
   created_at: string;
   updated_at: string;
 }
+
+/**
+ * A category, with the same fields as a row of `public.categories`.
+ * `user_id` is null for the predefined ones (Muncă, Școală, Sală).
+ */
+export interface Category {
+  id: string;
+  user_id: string | null;
+  name: string;
+  color: string | null;
+  created_at: string;
+}
