@@ -64,7 +64,7 @@ Categoriile predefinite sunt create de migrație, cu ID-uri fixe: **Muncă** (`�
 | `description`   | `text`        | opțional, max. 2000 caractere                                              |
 | `due_at`        | `timestamptz` | obligatoriu; termenul folosit de `computeStatus()`                         |
 | `manual_status` | `text`        | `NULL`, `'completed'` sau `'canceled'`                                     |
-| `is_critical`   | `boolean`     | activitate „Critic”, primește reminder (R6)                                |
+| `is_critical`   | `boolean`     | implicit `false`; activitate „Critic”, primește reminder (R6)              |
 | `completed_at`  | `timestamptz` | momentul finalizării, pentru statistici pe zi / săptămână (R7)             |
 | `created_at`    | `timestamptz` | `now()`                                                                    |
 | `updated_at`    | `timestamptz` | actualizat automat                                                         |
