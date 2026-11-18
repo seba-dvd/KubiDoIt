@@ -137,15 +137,37 @@ Nu este un test pgTAP, deci nu se rulează cu `supabase test db`.
 | B                         | vede doar cele 3 categorii predefinite și nu le poate modifica sau șterge                           |
 | A, după încercările lui B | activitatea e neatinsă; nu vede categoria personală a lui B                                         |
 | A                         | poate folosi o categorie predefinită, dar nu pe cea a lui B (cheia străină ignoră RLS, politica nu) |
+| B                         | își poate redenumi propria categorie (verificare pozitivă: RLS nu blochează tot)                    |
+| A                         | nu poate modifica, șterge sau crea pe numele lui B o categorie a lui B                              |
 | `anon`                    | `permission denied` la citirea din `tasks` și din `categories`                                      |
 
 ### Rezultate
 
-| Data       | Proiect                        | Migrații                     | Rezultat                     |
-| ---------- | ------------------------------ | ---------------------------- | ---------------------------- |
-| 03.11.2026 | KubiDoIt (cloud, eu-central-1) | `20261014120000_init_schema` | toate verificările au trecut |
+| Data       | Proiect                        | Migrații                                                              | Rezultat                                                               |
+| ---------- | ------------------------------ | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 03.11.2026 | KubiDoIt (cloud, eu-central-1) | `20261014120000_init_schema`                                          | toate verificările au trecut                                           |
+| 19.11.2026 | KubiDoIt (cloud, eu-central-1) | `20261014120000_init_schema`, `20261119120000_revoke_rls_auto_enable` | toate verificările au trecut, inclusiv cele noi pentru categorii (#38) |
 
 Ca verificare a testului însuși, o variantă cu o așteptare greșită intenționat (B vede 99 de activități) a picat cu mesajul `B vede activitatea lui A`, deci `assert`-urile sunt active. După ambele rulări, baza a rămas fără utilizatori de test și fără activități.
+
+## Security Advisor și Performance Advisor
+
+Verificate la 19.11.2026 (#38), după _Rerun linter_ în Dashboard → Advisors.
+
+| Advisor     | Rezultat                                                                                    | Decizie                                                                                                                                                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Security    | `public.rls_auto_enable()` (SECURITY DEFINER) putea fi apelată de `anon` și `authenticated` | Funcția e creată de Supabase pentru event trigger-ul `ensure_rls`, care activează RLS pe tabelele noi. Migrația `20261119120000_revoke_rls_auto_enable` scoate dreptul de execuție; trigger-ul funcționează în continuare. |
+| Security    | Leaked Password Protection Disabled                                                         | Acceptat: verificarea parolelor compromise e disponibilă doar pe planul Pro.                                                                                                                                               |
+| Performance | Unused Index pe `categories` și `tasks` (3 sugestii)                                        | Păstrați: indecșii pe `user_id` și `category_id` sunt cei recomandați pentru politicile RLS și apar nefolosiți doar pentru că baza are încă puține date.                                                                   |
+
+## Migrațiile aplicate
+
+În ordinea în care se aplică:
+
+| Fișier                                      | Conținut                                                                    |
+| ------------------------------------------- | --------------------------------------------------------------------------- |
+| `20261014120000_init_schema.sql`            | tabelele `categories` și `tasks`, trigger-ul, drepturile, RLS, Realtime     |
+| `20261119120000_revoke_rls_auto_enable.sql` | scoate dreptul de execuție pe `public.rls_auto_enable()` (Security Advisor) |
 
 ## Extensia pentru grupuri (R8, migrația 2)
 

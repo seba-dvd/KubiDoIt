@@ -1,4 +1,4 @@
--- Testul RLS pentru public.tasks și public.categories (issue #21).
+-- Testul RLS pentru public.tasks și public.categories (issue #21, #38).
 --
 -- Cum se rulează: Supabase Dashboard → SQL Editor → lipești tot fișierul → Run.
 --   - toate verificările trec  → „Success. No rows returned”
@@ -93,6 +93,17 @@ end $$;
 insert into public.categories (id, name)
 values ('00000000-0000-0000-0000-0000000000cb', 'Categoria lui B');
 
+-- 2g. B își poate redenumi propria categorie
+do $$
+declare
+  n int;
+begin
+  update public.categories set name = 'Categoria lui B (redenumită)'
+  where id = '00000000-0000-0000-0000-0000000000cb';
+  get diagnostics n = row_count;
+  assert n = 1, 'B nu își poate redenumi propria categorie';
+end $$;
+
 -- 3. Înapoi ca A: activitatea e neatinsă după încercările lui B
 reset role;
 select set_config('request.jwt.claims',
@@ -122,6 +133,31 @@ begin
   raise exception 'A a folosit categoria lui B';
 exception
   when insufficient_privilege then null;
+end $$;
+
+-- 3d. A nu poate modifica sau șterge categoria lui B
+do $$
+declare
+  n int;
+begin
+  update public.categories set name = 'modificat de A'
+  where id = '00000000-0000-0000-0000-0000000000cb';
+  get diagnostics n = row_count;
+  assert n = 0, 'A a modificat categoria lui B';
+
+  delete from public.categories where id = '00000000-0000-0000-0000-0000000000cb';
+  get diagnostics n = row_count;
+  assert n = 0, 'A a șters categoria lui B';
+end $$;
+
+-- 3e. A nu poate crea o categorie pe numele lui B
+do $$
+begin
+  insert into public.categories (user_id, name)
+  values ('00000000-0000-0000-0000-00000000000b', 'Pe numele lui B');
+  raise exception 'A a creat o categorie pe numele lui B';
+exception
+  when insufficient_privilege then null;  -- blocat de RLS, cum trebuie
 end $$;
 
 -- 4. Ca anon (fără login): nu are acces la tabele
