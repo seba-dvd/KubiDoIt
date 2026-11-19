@@ -63,6 +63,9 @@ git merge origin/main              # înainte de fiecare sarcină nouă
    - [#55] M2.7 – cazurile din M2.6 ca teste Vitest;
    - [#56] M2.8 – testele end-to-end pe web cu Playwright și job-ul lor în CI.
 5. Din criteriile de acceptare din [user-stories.md](../user-stories.md) adaugi în planul de testare cazurile pentru R4–R8, odată cu testarea acelor cerințe ([#32], [#39], [#59], [#44]).
+6. Spre checkpoint-ul mobil din **03.12**, două sarcini de **implementare** în `shared/`:
+   - [#83] M2.10 – editarea unei activități: `validateTaskChanges()` și `updateTask()`, cu teste. Formularul îl adaugă apoi Tudor și Andrei;
+   - [#82] M4.9 – statisticile „azi” și „săptămâna” după ora României, nu după UTC. Scrie întâi testele care pică (le ai oricum în [#59]), apoi repară `shared/src/stats.ts`.
 
 ## Calendarul tău
 
@@ -79,6 +82,8 @@ git merge origin/main              # înainte de fiecare sarcină nouă
 |                   | [#58] | M3.11 Teste e2e: login, categorii, sincronizare O4 (**cod**)    | [#56], [#24], [#25], [#28], [#30] |
 |                   | [#59] | M4.8 Teste pentru statistici și remindere (**cod**)             | [#33], [#34], [#36]               |
 | **03.12** · mobil | [#32] | M3.10 Testare R4 / R5: izolarea datelor, sincronizare, regresie | [#25]–[#31]                       |
+|                   | [#83] | M2.10 Editarea unei activități în `shared/` (**cod**)           | [#20] (David)                     |
+|                   | [#82] | M4.9 Statisticile după ora României (**cod**)                   | [#33] (Andrei), cu [#59]          |
 | **17.12** · L3    | [#39] | M4.7 Testare R6 / R7 pe browsere, Android, iOS                  | [#34]–[#37]                       |
 |                   | [#47] | M6.3 Regresia finală O1–O7 + raportul final                     | toate                             |
 |                   | [#60] | M6.7 Acoperirea testelor în CI + verificare pe Vercel (**cod**) | [#56], [#45]                      |
@@ -111,6 +116,7 @@ Valabilă pentru orice sarcină: vezi [plan-proiect.md → Definition of Done](.
 [#9]: https://github.com/seba-dvd/KubiDoIt/issues/9
 [#12]: https://github.com/seba-dvd/KubiDoIt/issues/12
 [#16]: https://github.com/seba-dvd/KubiDoIt/issues/16
+[#20]: https://github.com/seba-dvd/KubiDoIt/issues/20
 [#22]: https://github.com/seba-dvd/KubiDoIt/issues/22
 [#24]: https://github.com/seba-dvd/KubiDoIt/issues/24
 [#25]: https://github.com/seba-dvd/KubiDoIt/issues/25
@@ -135,3 +141,5 @@ Valabilă pentru orice sarcină: vezi [plan-proiect.md → Definition of Done](.
 [#58]: https://github.com/seba-dvd/KubiDoIt/issues/58
 [#59]: https://github.com/seba-dvd/KubiDoIt/issues/59
 [#60]: https://github.com/seba-dvd/KubiDoIt/issues/60
+[#82]: https://github.com/seba-dvd/KubiDoIt/issues/82
+[#83]: https://github.com/seba-dvd/KubiDoIt/issues/83
