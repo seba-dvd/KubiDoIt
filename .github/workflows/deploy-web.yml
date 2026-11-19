@@ -1,0 +1,45 @@
+# Publishes the web app on Vercel from every push to main.
+#
+# On the Vercel Hobby plan, Git deployments only run for commits authored by the account owner,
+# so a PR merged by a teammate would be blocked. Deploying from GitHub Actions with the owner's
+# token works whoever merged. Git deployments are switched off in web/vercel.json.
+#
+# Secrets (Settings → Secrets and variables → Actions): VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID.
+name: Deploy web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-web
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Check the Vercel secrets
+        run: |
+          for name in VERCEL_TOKEN VERCEL_ORG_ID VERCEL_PROJECT_ID; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Lipsește secretul $name (Settings → Secrets and variables → Actions)."
+              exit 1
+            fi
+          done
+
+      # The project's Root Directory (web/) comes from the Vercel project settings.
+      - name: Deploy to production
+        run: npx --yes vercel@66 deploy --prod --token="$VERCEL_TOKEN"
