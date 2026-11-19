@@ -96,5 +96,5 @@ Pe Vercel, variabilele web se setează în _Project Settings → Environment Var
 
 ## Publicare
 
-- **Web:** Vercel, la https://kubi-do-it.vercel.app, cu _Root Directory_ `web/`. Până la integrarea autentificării (#24, #25) rulează în mod demo, fără variabilele Supabase. `web/vercel.json` trimite toate rutele la `index.html` (rutare în client).
+- **Web:** Vercel, la https://kubi-do-it.vercel.app, cu _Root Directory_ `web/`. Publicarea pornește din GitHub Actions (`.github/workflows/deploy-web.yml`) la fiecare push în `main`, cu token-ul proprietarului contului Vercel: pe planul Hobby, Vercel nu publică din Git commit-urile altor autori, de aceea publicarea automată din Git e oprită în `web/vercel.json`. Până la integrarea autentificării (#24, #25) rulează în mod demo, fără variabilele Supabase. `web/vercel.json` trimite toate rutele la `index.html` (rutare în client).
 - **Mobil:** Expo Go pentru testare; APK Android prin EAS Build (profil `preview`, `buildType: apk`). Publicarea în magazine nu face parte din proiect.
