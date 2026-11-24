@@ -21,7 +21,7 @@ Monorepo using **npm workspaces** — a single `npm install` at the root install
 
 - `@kubidoit/shared` (`shared/src/`) — the **single source of truth** for cross-platform logic: types, `computeStatus()` for task state, color/label maps, mock data. Both apps import from `@kubidoit/shared`. New shared logic must land here, not be duplicated in `web/` or `mobile/`.
 - `@kubidoit/web` (`web/`) — React 19 + Vite + TypeScript + React Router 7. Entry pages: Login, Tasks, Stats. Supabase client at `web/src/lib/supabase.ts`.
-- `@kubidoit/mobile` (`mobile/`) — React Native via Expo SDK 57 + Expo Router + React Native Paper. Screens live in `mobile/app/` as Expo Router files (tabs: Tasks, Stats, Profile). Supabase client at `mobile/lib/supabase.ts`.
+- `@kubidoit/mobile` (`mobile/`) — React Native via Expo SDK 58 + Expo Router + React Native Paper. Screens live in `mobile/app/` as Expo Router files (tabs: Tasks, Stats, Profile). Supabase client at `mobile/lib/supabase.ts`.
 
 Backend is **Supabase** (Postgres + Auth + Row Level Security + Realtime). SQL migrations live in `supabase/migrations/` and must be applied **in filename order**. Data isolation and multi-user group tasks rely on RLS policies — never bypass RLS by using the `service_role` key in app code (it must never appear in any file in the repo). Only the **anon**/**publishable** key is embedded in the client bundles.
 
@@ -58,3 +58,22 @@ Node **22.12+** is required (24 LTS recommended).
 - Pre-PR gate: `npm run lint && npm run typecheck && npm test` must pass. Reviews are on request: authors merge their own PRs once `verify` is green; David (PM) reviews when asked.
 - **Versioning:** one SemVer version for the whole monorepo (all `package.json` files + `mobile/app.json`), tagged `vX.Y.Z` with a GitHub Release. `feat` → MINOR, `fix`/`refactor`/`docs`/`chore` → PATCH, breaking (`!` / `BREAKING CHANGE:`) → MAJOR. History and the release steps are in `CHANGELOG.md` (Romanian).
 - Team ownership (useful when deciding who/what a change touches): web → Mituleci Tudor, mobile → Kubanda Andrei, project management and Supabase/backend/security → Pilat David, requirements/QA/testing/docs → Nicolescu Andreas.
+
+## Capcane cunoscute
+
+- Versiunea React nu mai e aceeași: `web/` are 19.2.3, iar `mobile/` are 19.3.0, deci `package-lock.json` instalează două copii de React. Aliniază-le înainte de orice cod comun cu hook-uri.
+- `package.json` din rădăcină are o dependență `"expo": "^58"` care ține de `mobile/`, nu de rădăcină.
+- `deploy-web.yml` publică pe Vercel la orice push pe `main`, fără să aștepte jobul `verify`.
+- Testul RLS (`supabase/tests/rls_tasks.sql`) se rulează doar manual; nu e în CI.
+- Supabase Realtime nu aplică RLS evenimentelor DELETE: toți abonații primesc ID-urile șterse.
+
+## Unde am rămas
+
+Actualizat 2026-11-24. Ultima versiune: v1.6.0 (19.11.2026).
+
+- Web-ul de pe Vercel (https://kubi-do-it.vercel.app) rulează încă pe date mock (`createMockTasks()` în `web/src/state/TasksProvider.tsx`), iar formularul de login e dezactivat.
+- API-ul din `shared/src/api/` (`listTasks`, `listCategories`, `subscribeToTasks`) e scris și testat cu un client fals, dar nu e apelat încă din `web/` sau `mobile/`.
+- Termene depășite față de `docs/plan-proiect.md`: autentificarea (05.11) și L2 cu R1–R7 pe Vercel (19.11). Următorul termen: mobil R1–R5 pe 03.12.2026.
+- **Următorul pas:** înlocuiește mock-ul din `TasksProvider.tsx` cu autentificarea și apelurile Supabase, setează `VITE_SUPABASE_*` pe Vercel și adaugă URL-ul Vercel la redirect-urile Auth.
+
+Istoricul sesiunilor: `docs/jurnal.md`.
