@@ -44,5 +44,10 @@ export default defineConfig([
     files: ['**/*.config.{js,mjs,cjs,ts}'],
     languageOptions: { globals: globals.node },
   },
+  {
+    // Claude Code hooks run in Node
+    files: ['.claude/hooks/**/*.mjs'],
+    languageOptions: { globals: globals.node },
+  },
   prettier,
 ]);
